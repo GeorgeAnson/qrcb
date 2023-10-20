@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.qrcb.common.core.assemble.config.JacksonConfig,\
+  com.qrcb.common.core.assemble.config.RestTemplateConfig,\
+  com.qrcb.common.core.assemble.util.SpringContextHolder

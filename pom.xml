@@ -23,6 +23,12 @@
             <email>georgeanson.gm@gmail.com</email>
         </developer>
     </developers>
+    <modules>
+        <module>qrcb-dependencies</module>
+        <module>qrcb-parent</module>
+        <module>qrcb-common-core</module>
+        <module>qrcb-common-core/qrcb-common-core-assemble</module>
+    </modules>
 
     <properties>
         <revision>1.0.0-SNAPSHOT</revision>
@@ -37,12 +43,12 @@
 
 
         <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
-        <maven.resources.plugin.version>3.3.0</maven.resources.plugin.version>
+        <maven.resources.plugin.version>3.3.1</maven.resources.plugin.version>
         <maven.plugin.plugin.version>3.9.0</maven.plugin.plugin.version>
         <maven.javadoc.plugin.version>3.5.0</maven.javadoc.plugin.version>
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
         <spring.javaformat.maven.plugin.version>0.0.39</spring.javaformat.maven.plugin.version>
-        <spring.boot.maven.plugin.version>3.1.2</spring.boot.maven.plugin.version>
+        <spring.boot.maven.plugin.version>2.4.3</spring.boot.maven.plugin.version>
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
         <docker.maven.plugin.version>0.43.0</docker.maven.plugin.version>
 
@@ -103,6 +109,14 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven.resources.plugin.version}</version>
+                    <configuration>
+                        <encoding>${encoding}</encoding>
+                    </configuration>
                 </plugin>
                 <!-- spring boot 默认插件 -->
                 <plugin>
@@ -190,6 +204,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
             <!-- 代码编译指定版本插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -200,6 +218,11 @@
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
             </plugin>
+            <!-- javadoc -->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--            </plugin>-->
             <!-- 打包关联最新 git commit 信息插件 -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
@@ -211,23 +234,10 @@
     <!-- 私服仓储 -->
     <repositories>
         <repository>
-            <id>springmesh_group</id>
-            <name>spring-mesh</name>
-            <url>http://192.168.100.114:8081/repository/springmesh_group/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <!--TODO：待去除阿里云代理-->
-        <repository>
             <id>aliyun</id>
             <name>aliyun</name>
             <url>https://maven.aliyun.com/nexus/content/groups/public</url>
         </repository>
-        <!--TODO：待去除MAVEN中央仓库代理-->
         <repository>
             <id>central-repos</id>
             <name>Central Repository</name>
@@ -236,18 +246,6 @@
     </repositories>
 
     <pluginRepositories>
-        <pluginRepository>
-            <id>springmesh_group</id>
-            <name>Spring Mesh Group</name>
-            <url>http://192.168.100.114:8081/repository/springmesh_group/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-        <!-- TODO：待去除aliyun-plugin仓库 -->
         <pluginRepository>
             <id>aliyun-plugin</id>
             <url>https://maven.aliyun.com/repository/public</url>
@@ -259,18 +257,5 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
-    <distributionManagement>
-        <repository>
-            <id>springmesh_release</id>
-            <name>Spring Mesh Release</name>
-            <url>http://192.168.100.114:8081/repository/springmesh_release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>springmesh_snapshot</id>
-            <name>Spring Mesh Snapshot</name>
-            <url>http://192.168.100.114:8081/repository/springmesh_snapshot/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
 </project>
