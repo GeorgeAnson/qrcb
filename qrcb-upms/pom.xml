@@ -10,8 +10,12 @@
         <relativePath>../qrcb-parent</relativePath>
     </parent>
 
-    <artifactId>qrcb-common-core</artifactId>
+    <artifactId>qrcb-upms</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
 
+
+    <modules>
+        <module>qrcb-upms-api</module>
+    </modules>
 </project>

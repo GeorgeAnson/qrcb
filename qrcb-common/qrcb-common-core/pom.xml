@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.qrcb</groupId>
+        <artifactId>qrcb-common</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>qrcb-common-core</artifactId>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+
+    <modules>
+        <module>qrcb-common-core-assemble</module>
+        <module>qrcb-common-core-data</module>
+        <module>qrcb-common-core-feign</module>
+        <module>qrcb-common-core-gray</module>
+        <module>qrcb-common-core-security</module>
+        <module>qrcb-common-core-sentinel</module>
+    </modules>
+</project>
