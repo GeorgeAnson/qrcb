@@ -1,0 +1,9 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.qrcb.common.core.data.cache.RedisTemplateConfig,\
+    com.qrcb.common.core.data.cache.RedisCacheManagerConfig,\
+    com.qrcb.common.core.data.cache.RedisCacheAutoConfiguration,\
+    com.qrcb.common.core.data.tenant.QrcbTenantConfigProperties,\
+    com.qrcb.common.core.data.tenant.TenantContextHolderFilter,\
+    com.qrcb.common.core.data.tenant.QrcbTenantConfiguration,\
+    com.qrcb.common.core.data.mybatis.MybatisPlusConfiguration,\
+    com.qrcb.common.core.data.resolver.TenantKeyStrResolver
