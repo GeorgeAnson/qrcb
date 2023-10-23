@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.qrcb.common.core.security.component.QrcbTokenEnhancer,\
+  com.qrcb.common.core.security.component.QrcbSecurityInnerAspect,\
+  com.qrcb.common.core.security.service.QrcbUserDetailsServiceImpl,\
+  com.qrcb.common.core.security.serializer.QrcbTokenStoreAutoConfiguration,\
+  com.qrcb.common.core.security.listener.AuthenticationFailureEventListener,\
+  com.qrcb.common.core.security.listener.AuthenticationSuccessEventListener
