@@ -28,6 +28,43 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- qrcb-common-core-assemble -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-assemble</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-feign -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-feign</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-upms-api -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-upms-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-security -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-data -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-data</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-gray -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-gray</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!-- Hutool -->
             <dependency>
                 <groupId>cn.hutool</groupId>

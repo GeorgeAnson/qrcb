@@ -23,11 +23,12 @@
             <email>georgeanson.gm@gmail.com</email>
         </developer>
     </developers>
+
     <modules>
         <module>qrcb-dependencies</module>
         <module>qrcb-parent</module>
-        <module>qrcb-common-core</module>
-        <module>qrcb-common-core/qrcb-common-core-assemble</module>
+        <module>qrcb-upms</module>
+        <module>qrcb-common</module>
     </modules>
 
     <properties>

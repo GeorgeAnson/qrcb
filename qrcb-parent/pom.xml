@@ -14,7 +14,6 @@
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
 
-
     <dependencies>
         <!--Lombok-->
         <dependency>
