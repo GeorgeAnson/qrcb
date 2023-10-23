@@ -18,6 +18,7 @@
         <module>qrcb-common-core-data</module>
         <module>qrcb-common-core-feign</module>
         <module>qrcb-common-core-gray</module>
+        <module>qrcb-common-core-log</module>
         <module>qrcb-common-core-security</module>
         <module>qrcb-common-core-sentinel</module>
     </modules>

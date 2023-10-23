@@ -24,6 +24,7 @@
         <jasypt.version>3.0.5</jasypt.version>
         <db2.version>4.28.11</db2.version>
         <swagger.version>1.5.22</swagger.version>
+        <spring.security.oauth2.version>2.3.6.RELEASE</spring.security.oauth2.version>
     </properties>
 
     <dependencyManagement>
@@ -62,6 +63,12 @@
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-gray</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-log -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-log</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -122,6 +129,12 @@
                 <groupId>com.ibm.db2.jcc</groupId>
                 <artifactId>db2jcc4</artifactId>
                 <version>${db2.version}</version>
+            </dependency>
+            <!--稳定版本，替代spring security bom内置-->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${spring.security.oauth2.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
