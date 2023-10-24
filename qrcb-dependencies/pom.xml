@@ -20,6 +20,8 @@
         <spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
         <transmittable.thread.local.version>2.14.3</transmittable.thread.local.version>
         <mybatis.plus.version>3.4.2</mybatis.plus.version>
+        <dynamic.datasource.version>3.2.0</dynamic.datasource.version>
+        <druid.version>1.2.5</druid.version>
         <hutool.version>5.8.20</hutool.version>
         <jasypt.version>3.0.5</jasypt.version>
         <db2.version>4.28.11</db2.version>
@@ -83,7 +85,13 @@
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-gateway</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-datasource -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-datasource</artifactId>
+                <version>${revision}</version>
             </dependency>
 
             <!-- Hutool -->
@@ -132,6 +140,17 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic.datasource.version}</version>
+            </dependency>
+            <!-- druid 连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
             </dependency>
             <!-- DB2数据库 -->
             <dependency>
