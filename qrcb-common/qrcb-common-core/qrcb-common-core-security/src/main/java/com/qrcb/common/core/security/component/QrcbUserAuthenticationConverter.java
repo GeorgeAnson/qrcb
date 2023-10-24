@@ -92,7 +92,6 @@ public class QrcbUserAuthenticationConverter  implements UserAuthenticationConve
         Integer userValue = MapUtil.getInt(map, SecurityConstants.DETAILS_TENANT_ID);
         if (StrUtil.isNotBlank(headerValue) && !userValue.toString().equals(headerValue)) {
             log.warn("请求头中的租户ID({})和用户的租户ID({})不一致", headerValue, userValue);
-            // TODO: 不要提示租户ID不对，可能被穷举
             throw new QrcbAuth2Exception(QrcbSecurityMessageSourceUtil.getAccessor().getMessage(
                     "AbstractUserDetailsAuthenticationProvider.badTenantId", new Object[] { headerValue },
                     "Bad tenant ID"));
