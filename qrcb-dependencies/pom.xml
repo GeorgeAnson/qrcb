@@ -41,28 +41,28 @@
                 <artifactId>qrcb-common-core-assemble</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <!-- qrcb-common-core-data -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-data</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-datasource -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-datasource</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- qrcb-common-core-feign -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-feign</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <!-- qrcb-upms-api -->
+            <!-- qrcb-common-core-gateway -->
             <dependency>
                 <groupId>com.qrcb</groupId>
-                <artifactId>qrcb-upms-api</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <!-- qrcb-common-core-security -->
-            <dependency>
-                <groupId>com.qrcb</groupId>
-                <artifactId>qrcb-common-core-security</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <!-- qrcb-common-core-data -->
-            <dependency>
-                <groupId>com.qrcb</groupId>
-                <artifactId>qrcb-common-core-data</artifactId>
+                <artifactId>qrcb-common-core-gateway</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-gray -->
@@ -77,22 +77,46 @@
                 <artifactId>qrcb-common-core-log</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <!-- qrcb-common-core-security -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-core-sentinel -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-sentinel</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- qrcb-common-core-swagger -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-swagger</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <!-- qrcb-common-core-gateway -->
+            <!-- qrcb-upms-api -->
             <dependency>
                 <groupId>com.qrcb</groupId>
-                <artifactId>qrcb-common-core-gateway</artifactId>
+                <artifactId>qrcb-upms-api</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <!-- qrcb-common-core-datasource -->
+            <!-- qrcb-common-extension-job -->
             <dependency>
                 <groupId>com.qrcb</groupId>
-                <artifactId>qrcb-common-core-datasource</artifactId>
+                <artifactId>qrcb-common-extension-job</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-extension-oss -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-extension-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- qrcb-common-extension-sequence -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-extension-sequence</artifactId>
                 <version>${revision}</version>
             </dependency>
 

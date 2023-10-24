@@ -16,5 +16,6 @@
     <modules>
         <module>qrcb-common-extension-job</module>
         <module>qrcb-common-extension-oss</module>
+        <module>qrcb-common-extension-sequence</module>
     </modules>
 </project>
