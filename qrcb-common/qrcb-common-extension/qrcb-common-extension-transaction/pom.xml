@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.qrcb</groupId>
+        <artifactId>qrcb-common-extension</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>qrcb-common-extension-transaction</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+
+    <dependencies>
+        <!-- 核心工具包 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-assemble</artifactId>
+        </dependency>
+        <!--lcn 模块端控制依赖-->
+        <dependency>
+            <groupId>com.codingapi</groupId>
+            <artifactId>tx-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.codingapi</groupId>
+            <artifactId>tx-plugins-db</artifactId>
+        </dependency>
+        <!--feign 依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+    </dependencies>
+</project>

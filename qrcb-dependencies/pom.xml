@@ -31,6 +31,7 @@
         <knife4j.version>3.0.3</knife4j.version><!-- TODO:版本从3.0.2升级到3.0.3 -->
         <xxl.job.version>2.3.0</xxl.job.version>
         <aws.s3.version>1.11.543</aws.s3.version>
+        <lcn.version>4.1.0</lcn.version>
     </properties>
 
     <dependencyManagement>
@@ -234,6 +235,29 @@
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk-s3</artifactId>
                 <version>${aws.s3.version}</version>
+            </dependency>
+            <!--lcn 模块端控制依赖-->
+            <dependency>
+                <groupId>com.codingapi</groupId>
+                <artifactId>tx-client</artifactId>
+                <version>${lcn.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.codingapi</groupId>
+                <artifactId>tx-plugins-db</artifactId>
+                <version>${lcn.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
