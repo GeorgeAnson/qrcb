@@ -79,6 +79,12 @@
                 <artifactId>qrcb-common-core-swagger</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <!-- qrcb-common-core-gateway -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-gateway</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
 
             <!-- Hutool -->
             <dependency>
