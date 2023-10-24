@@ -30,6 +30,7 @@
         <swagger.fox.version>3.0.0</swagger.fox.version>
         <knife4j.version>3.0.3</knife4j.version><!-- TODO:版本从3.0.2升级到3.0.3 -->
         <xxl.job.version>2.3.0</xxl.job.version>
+        <aws.s3.version>1.11.543</aws.s3.version>
     </properties>
 
     <dependencyManagement>
@@ -203,6 +204,12 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl.job.version}</version>
+            </dependency>
+            <!-- aws s3 协议 -->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-s3</artifactId>
+                <version>${aws.s3.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
