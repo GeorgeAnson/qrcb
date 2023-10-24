@@ -17,5 +17,6 @@
         <module>qrcb-common-extension-job</module>
         <module>qrcb-common-extension-oss</module>
         <module>qrcb-common-extension-sequence</module>
+        <module>qrcb-common-extension-transaction</module>
     </modules>
 </project>

@@ -12,4 +12,9 @@ public interface ServiceNameConstants {
      * UMPS模块
      */
     String UPMS_SERVICE = "qrcb-upms-biz";
+
+    /**
+     * 分布式事务协调服务
+     */
+    String TX_MANAGER = "qrcb-tx-manager";
 }
