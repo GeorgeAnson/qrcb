@@ -18,5 +18,6 @@
         <module>qrcb-common-extension-oss</module>
         <module>qrcb-common-extension-sequence</module>
         <module>qrcb-common-extension-transaction</module>
+        <module>qrcb-common-extension-xss</module>
     </modules>
 </project>
