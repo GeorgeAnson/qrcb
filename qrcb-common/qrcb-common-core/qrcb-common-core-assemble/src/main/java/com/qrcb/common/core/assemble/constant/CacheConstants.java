@@ -14,4 +14,14 @@ public interface CacheConstants {
      * {@code @Cacheable(value = CacheConstants.GLOBALLY+CacheConstants.MENU_DETAILS, key = "#roleId  + '_menu'", unless = "#result == null")}
      */
     String GLOBALLY = "gl:";
+
+    /**
+     * 路由存放
+     */
+    String ROUTE_KEY = GLOBALLY + "gateway_route_key";
+
+    /**
+     * 内存reload 时间
+     */
+    String ROUTE_JVM_RELOAD_TOPIC = "gateway_jvm_route_reload_topic";
 }
