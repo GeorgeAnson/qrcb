@@ -21,5 +21,6 @@
         <module>qrcb-common-core-log</module>
         <module>qrcb-common-core-security</module>
         <module>qrcb-common-core-sentinel</module>
+        <module>qrcb-common-core-swagger</module>
     </modules>
 </project>
