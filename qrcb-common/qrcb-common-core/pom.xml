@@ -23,5 +23,6 @@
         <module>qrcb-common-core-sentinel</module>
         <module>qrcb-common-core-swagger</module>
         <module>qrcb-common-core-gateway</module>
+        <module>qrcb-common-core-datasource</module>
     </modules>
 </project>
