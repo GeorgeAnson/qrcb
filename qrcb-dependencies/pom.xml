@@ -23,8 +23,10 @@
         <hutool.version>5.8.20</hutool.version>
         <jasypt.version>3.0.5</jasypt.version>
         <db2.version>4.28.11</db2.version>
-        <swagger.version>1.5.22</swagger.version>
+        <swagger.core.version>1.5.22</swagger.core.version>
         <spring.security.oauth2.version>2.3.6.RELEASE</spring.security.oauth2.version>
+        <swagger.fox.version>3.0.0</swagger.fox.version>
+        <knife4j.version>3.0.3</knife4j.version><!-- TODO:版本从3.0.2升级到3.0.3 -->
     </properties>
 
     <dependencyManagement>
@@ -71,6 +73,12 @@
                 <artifactId>qrcb-common-core-log</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <!-- qrcb-common-core-swagger -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-core-swagger</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- Hutool -->
             <dependency>
@@ -94,12 +102,12 @@
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-models</artifactId>
-                <version>${swagger.version}</version>
+                <version>${swagger.core.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>${swagger.version}</version>
+                <version>${swagger.core.version}</version>
             </dependency>
             <!--监控客户端-->
             <dependency>
@@ -135,6 +143,34 @@
                 <groupId>org.springframework.security.oauth</groupId>
                 <artifactId>spring-security-oauth2</artifactId>
                 <version>${spring.security.oauth2.version}</version>
+            </dependency>
+            <!--接口文档-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.fox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.fox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-oas</artifactId>
+                <version>${swagger.fox.version}</version>
+            </dependency>
+            <!--knife4j spring ui -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-ui</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!--knife4j是为Java MVC框架集成Swagger生成Api文档的增强-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
