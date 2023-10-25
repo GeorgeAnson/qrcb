@@ -1,0 +1,45 @@
+# rewrite nacos datasource plugin default configuration
+# MySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoAggrMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoBetaMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoTagMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigTagsRelationMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.HistoryConfigInfoMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.TenantInfoMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.TenantCapacityMapperByMySql
+com.alibaba.nacos.plugin.datasource.impl.mysql.GroupCapacityMapperByMysql
+
+# Derby
+com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoAggrMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoBetaMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoTagMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoTagsRelationMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.HistoryConfigInfoMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.TenantInfoMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.TenantCapacityMapperByDerby
+com.alibaba.nacos.plugin.datasource.impl.derby.GroupCapacityMapperByDerby
+
+# DB2
+com.qrcb.common.extension.nacos.impl.db2.ConfigInfoAggrMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.ConfigInfoBetaMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.ConfigInfoMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.ConfigInfoTagMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.ConfigTagsRelationMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.HistoryConfigInfoMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.TenantInfoMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.TenantCapacityMapperByDb2
+com.qrcb.common.extension.nacos.impl.db2.GroupCapacityMapperByDb2
+
+# Postgresql
+com.qrcb.common.extension.nacos.impl.postgresql.ConfigInfoAggrMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.ConfigInfoBetaMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.ConfigInfoMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.ConfigInfoTagMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.ConfigTagsRelationMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.HistoryConfigInfoMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.TenantInfoMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.TenantCapacityMapperByPostgresql
+com.qrcb.common.extension.nacos.impl.postgresql.GroupCapacityMapperByPostgresql
+
