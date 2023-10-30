@@ -32,4 +32,19 @@ public interface CommonConstants {
      * header 中版本信息
      */
     String VERSION = "Version";
+
+    /**
+     * 滑块验证码
+     */
+    String IMAGE_CODE_TYPE = "blockPuzzle";
+
+    /**
+     * 验证码开关
+     */
+    String CAPTCHA_FLAG = "captcha_flag";
+
+    /**
+     * 密码传输是否加密
+     */
+    String ENC_FLAG = "enc_flag";
 }

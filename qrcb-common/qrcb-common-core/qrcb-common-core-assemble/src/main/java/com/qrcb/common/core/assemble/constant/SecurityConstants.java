@@ -14,6 +14,11 @@ public interface SecurityConstants {
     boolean INNER_CHECK = true;
 
     /**
+     * 刷新
+     */
+    String REFRESH_TOKEN = "refresh_token";
+
+    /**
      * 角色前缀
      */
     String ROLE = "ROLE_";
@@ -22,6 +27,21 @@ public interface SecurityConstants {
      * 前缀
      */
     String QRCB_PREFIX = "qrcb_";
+
+    /**
+     * OAUTH URL
+     */
+    String OAUTH_TOKEN_URL = "/oauth/token";
+
+    /**
+     * 手机号登录URL
+     */
+    String SMS_TOKEN_URL = "/mobile/token/sms";
+
+    /**
+     * 社交登录URL
+     */
+    String SOCIAL_TOKEN_URL = "/mobile/token/social";
 
     /**
      * 自定义登录URL

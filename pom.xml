@@ -30,6 +30,7 @@
         <module>qrcb-upms</module>
         <module>qrcb-common</module>
         <module>qrcb-auth</module>
+        <module>qrcb-gateway</module>
     </modules>
 
     <properties>
