@@ -34,6 +34,7 @@
         <lcn.version>4.1.0</lcn.version>
         <jsoup.version>1.13.1</jsoup.version>
         <nacos.version>2.2.3</nacos.version>
+        <captcha.version>1.2.7</captcha.version>
     </properties>
 
     <dependencyManagement>
@@ -296,6 +297,11 @@
                 <groupId>com.alibaba.nacos</groupId>
                 <artifactId>nacos-common</artifactId>
                 <version>${nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.anji-plus</groupId>
+                <artifactId>captcha-spring-boot-starter</artifactId>
+                <version>${captcha.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
