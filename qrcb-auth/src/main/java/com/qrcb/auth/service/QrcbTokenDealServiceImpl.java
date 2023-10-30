@@ -21,7 +21,6 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -145,11 +144,7 @@ public class QrcbTokenDealServiceImpl {
             cursor.next();
         }
 
-        try {
-            cursor.close();
-        } catch (IOException e) {
-            log.error("关闭 cursor 失败");
-        }
+        cursor.close();
         return result;
     }
 }
