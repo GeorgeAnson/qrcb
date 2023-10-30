@@ -16,6 +16,16 @@ public interface CacheConstants {
     String GLOBALLY = "gl:";
 
     /**
+     * 用户信息缓存
+     */
+    String USER_DETAILS = "user_details";
+
+    /**
+     * oauth 客户端信息
+     */
+    String CLIENT_DETAILS_KEY = "qrcb_oauth:client:details";
+
+    /**
      * 路由存放
      */
     String ROUTE_KEY = GLOBALLY + "gateway_route_key";
