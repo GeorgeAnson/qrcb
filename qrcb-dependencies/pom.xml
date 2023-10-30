@@ -110,6 +110,12 @@
                 <artifactId>qrcb-common-extension-job</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <!-- qrcb-common-extension-nacos -->
+            <dependency>
+                <groupId>com.qrcb</groupId>
+                <artifactId>qrcb-common-extension-nacos</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- qrcb-common-extension-oss -->
             <dependency>
                 <groupId>com.qrcb</groupId>
