@@ -35,6 +35,7 @@
         <jsoup.version>1.13.1</jsoup.version>
         <nacos.version>2.2.3</nacos.version>
         <captcha.version>1.2.7</captcha.version>
+        <nacos.version>2.2.3</nacos.version>
     </properties>
 
     <dependencyManagement>
@@ -302,6 +303,32 @@
                 <groupId>com.github.anji-plus</groupId>
                 <artifactId>captcha-spring-boot-starter</artifactId>
                 <version>${captcha.version}</version>
+            </dependency>
+            <!-- nacos -->
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-config</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-naming</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-plugin-default-impl</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-istio</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-prometheus</artifactId>
+                <version>${nacos.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
