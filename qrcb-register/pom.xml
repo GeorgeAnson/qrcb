@@ -66,7 +66,7 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
+                <filtering>false</filtering>
                 <excludes>
                     <exclude>**/*.woff</exclude>
                     <exclude>**/*.woff2</exclude>
