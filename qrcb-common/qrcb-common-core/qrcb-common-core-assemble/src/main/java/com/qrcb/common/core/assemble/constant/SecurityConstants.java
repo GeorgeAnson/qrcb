@@ -19,6 +19,11 @@ public interface SecurityConstants {
     String ROLE = "ROLE_";
 
     /**
+     * 前缀
+     */
+    String QRCB_PREFIX = "qrcb_";
+
+    /**
      * 自定义登录URL
      */
     String MOBILE_TOKEN_URL = "/mobile/token/*";
@@ -32,6 +37,11 @@ public interface SecurityConstants {
      * oauth 相关前缀
      */
     String OAUTH_PREFIX = "oauth:";
+
+    /**
+     * 授权码模式code key 前缀
+     */
+    String OAUTH_CODE_PREFIX = "oauth:code:";
 
     /**
      * 内部
