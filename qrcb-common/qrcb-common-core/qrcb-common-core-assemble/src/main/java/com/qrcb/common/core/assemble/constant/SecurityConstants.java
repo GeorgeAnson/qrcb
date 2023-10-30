@@ -29,11 +29,6 @@ public interface SecurityConstants {
     String MOBILE_TOKEN_URL = "/mobile/token/*";
 
     /**
-     * 前缀
-     */
-    String QRCB_PREFIX = "qrcb_";
-
-    /**
      * oauth 相关前缀
      */
     String OAUTH_PREFIX = "oauth:";
