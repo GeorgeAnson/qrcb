@@ -28,14 +28,14 @@ public class ConfigInfoAggrMapperByDb2 extends AbstractMapper implements ConfigI
             }
             placeholderString.append('?');
         }
-        return "DELETE FROM config_info_aggr WHERE data_id = ? AND group_id = ? AND tenant_id = ? AND datum_id IN ("
+        return "DELETE FROM QRCB_CONFIG.CONFIG_INFO_AGGR WHERE data_id = ? AND group_id = ? AND tenant_id = ? AND datum_id IN ("
                 + placeholderString + ")";
     }
 
     @Override
     public String aggrConfigInfoCount(int size, boolean isIn) {
         StringBuilder sql = new StringBuilder(
-                "SELECT count(*) FROM config_info_aggr WHERE data_id = ? AND group_id = ? AND tenant_id = ? AND datum_id");
+                "SELECT count(*) FROM QRCB_CONFIG.CONFIG_INFO_AGGR WHERE data_id = ? AND group_id = ? AND tenant_id = ? AND datum_id");
         if (isIn) {
             sql.append(" IN (");
         } else {
@@ -55,18 +55,18 @@ public class ConfigInfoAggrMapperByDb2 extends AbstractMapper implements ConfigI
     @Override
     public String findConfigInfoAggrIsOrdered() {
         return "SELECT data_id,group_id,tenant_id,datum_id,app_name,content FROM "
-                + "config_info_aggr WHERE data_id = ? AND group_id = ? AND tenant_id = ? ORDER BY datum_id";
+                + "QRCB_CONFIG.CONFIG_INFO_AGGR WHERE data_id = ? AND group_id = ? AND tenant_id = ? ORDER BY datum_id";
     }
 
     @Override
     public String findConfigInfoAggrByPageFetchRows(int startRow, int pageSize) {
-        return "SELECT data_id,group_id,tenant_id,datum_id,app_name,content FROM config_info_aggr WHERE data_id= ? AND "
+        return "SELECT data_id,group_id,tenant_id,datum_id,app_name,content FROM QRCB_CONFIG.CONFIG_INFO_AGGR WHERE data_id= ? AND "
                 + "group_id= ? AND tenant_id= ? ORDER BY datum_id LIMIT " + pageSize + " OFFSET " + startRow;
     }
 
     @Override
     public String findAllAggrGroupByDistinct() {
-        return "SELECT DISTINCT data_id, group_id, tenant_id FROM config_info_aggr";
+        return "SELECT DISTINCT data_id, group_id, tenant_id FROM QRCB_CONFIG.CONFIG_INFO_AGGR";
     }
 
     @Override
