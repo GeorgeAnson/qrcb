@@ -19,8 +19,32 @@ public interface ConfigConstants {
     String AUTH_ENABLED = "nacos.core.auth.enabled";
 
     /**
+     * 认证类型：nacos, ldap
+     */
+    String AUTH_TYPE="nacos.core.auth.system.type";
+
+    /**
+     * 服务端身份认证 key
+     */
+    String SERVER_IDENTITY_KEY="nacos.core.auth.server.identity.key";
+
+    /**
+     * 服务端身份认证 value
+     */
+    String SERVER_IDENTITY_VALUE="nacos.core.auth.server.identity.value";
+
+    /**
+     * user-agent，除非nacos升级，否则默认关闭
+     */
+    String USER_AGENT_AUTH_WHITE="nacos.core.auth.enable.userAgentAuthWhite";
+    /**
      * 日志目录
      */
     String LOG_BASEDIR = "server.tomcat.basedir";
+
+    /**
+     * access_log日志开关
+     */
+    String LOG_ENABLED = "server.tomcat.accesslog.enabled";
 
 }
