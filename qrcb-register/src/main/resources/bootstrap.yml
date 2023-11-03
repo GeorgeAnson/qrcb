@@ -4,15 +4,20 @@ server:
     basedir: logs
   servlet:
     contextPath: /nacos
-  error:
-    include-message: ALWAYS
+
 
 db:
   num: 1
-  user: ${DB2_USER:db2admin}
-  password: ${DB2_PWD:db2admin}
   url:
-    0: jdbc:db2://${DB2_HOST:qrcb-db2}:${DB2_PORT:50000}/${DB2_DB:EDW}
+    0: jdbc:db2://127.0.0.1:50000}/EDW
+  user:
+    0: ${DB2_USER:db2admin}
+  password:
+    0: ${DB2_PWD:db2admin}
+  pool:
+    config:
+      driver-class-name: com.ibm.db2.jcc.DB2Driver
+
 
 nacos:
   core:
@@ -42,8 +47,8 @@ nacos:
 
 spring:
   application:
-    name: @artifactId@
-  sql.init.platform: db2
+    name: qrcb-register  #@artifactId@
+  #  sql.init.platform: db2
   security.enabled: true
   boot:  # 接入 spring boot admin
     admin:
@@ -51,6 +56,9 @@ spring:
         url: http://qrcb-monitor:5001
         username: qrcb
         password: qrcb
+  sql:
+    init:
+      platform: db2
 
 useAddressServer: true
 
@@ -66,8 +74,7 @@ management:
       elastic:
         enabled: false
 
-# 屏蔽scanner warning 日志
+# 屏蔽 scanner warning 日志
 logging:
   level:
     org.apache.tomcat.util.scan.StandardJarScanner: ERROR
-
