@@ -39,6 +39,15 @@
             <groupId>com.qrcb</groupId>
             <artifactId>qrcb-common-extension-nacos</artifactId>
         </dependency>
+        <!-- DB2数据库 -->
+        <dependency>
+            <groupId>com.ibm.db2</groupId>
+            <artifactId>db2jcc_license_cu</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.db2.jcc</groupId>
+            <artifactId>db2jcc4</artifactId>
+        </dependency>
 
         <!-- log -->
         <!-- log4j通过slf4j来代理 -->
