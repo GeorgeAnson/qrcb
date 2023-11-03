@@ -15,8 +15,8 @@
     <name>${project.artifactId}</name>
 
     <properties>
-        <spring.boot.version>2.4.3</spring.boot.version>
-        <spring.cloud.version>2020.0.1</spring.cloud.version>
+        <spring.boot.version>2.6.11</spring.boot.version>
+        <spring.cloud.version>2021.0.4</spring.cloud.version>
         <spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
         <transmittable.thread.local.version>2.14.3</transmittable.thread.local.version>
         <mybatis.plus.version>3.4.2</mybatis.plus.version>
