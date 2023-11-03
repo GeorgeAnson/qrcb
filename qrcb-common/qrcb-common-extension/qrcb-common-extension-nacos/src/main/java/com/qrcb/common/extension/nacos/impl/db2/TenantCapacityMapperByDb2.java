@@ -13,9 +13,44 @@ import com.qrcb.common.extension.nacos.constant.QrcbDataSourceConstant;
 
 public class TenantCapacityMapperByDb2 extends AbstractMapper implements TenantCapacityMapper {
 
+
+    @Override
+    public String incrementUsageWithDefaultQuotaLimit() {
+        return "UPDATE QRCB_CONFIG.TENANT_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE tenant_id = ? AND usage <"
+                + " ? AND quota = 0";
+    }
+
+    @Override
+    public String incrementUsageWithQuotaLimit() {
+        return "UPDATE QRCB_CONFIG.TENANT_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE tenant_id = ? AND usage < "
+                + "quota AND quota != 0";
+    }
+
+    @Override
+    public String incrementUsage() {
+        return "UPDATE QRCB_CONFIG.TENANT_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE tenant_id = ?";
+    }
+
+    @Override
+    public String decrementUsage() {
+        return "UPDATE QRCB_CONFIG.TENANT_CAPACITY SET usage = usage - 1, gmt_modified = ? WHERE tenant_id = ? AND usage > 0";
+    }
+
+    @Override
+    public String correctUsage() {
+        return "UPDATE QRCB_CONFIG.TENANT_CAPACITY SET usage = (SELECT count(*) FROM QRCB_CONFIG.CONFIG_INFO WHERE tenant_id = ?), "
+                + "gmt_modified = ? WHERE tenant_id = ?";
+    }
+
     @Override
     public String getCapacityList4CorrectUsage() {
-        return "SELECT id, tenant_id FROM tenant_capacity WHERE id>? LIMIT ?";
+        return "SELECT id, tenant_id FROM QRCB_CONFIG.TENANT_CAPACITY WHERE id>? LIMIT ?";
+    }
+
+    @Override
+    public String insertTenantCapacity() {
+        return "INSERT INTO QRCB_CONFIG.TENANT_CAPACITY (tenant_id, quota, usage, max_size, max_aggr_count, max_aggr_size, "
+                + "gmt_create, gmt_modified) SELECT ?, ?, count(*), ?, ?, ?, ?, ? FROM QRCB_CONFIG.CONFIG_INFO WHERE tenant_id=?;";
     }
 
     @Override

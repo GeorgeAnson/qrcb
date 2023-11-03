@@ -15,22 +15,22 @@ public class HistoryConfigInfoMapperByDb2 extends AbstractMapper implements Hist
 
     @Override
     public String removeConfigHistory() {
-        return "DELETE FROM his_config_info WHERE gmt_modified < ? LIMIT ?";
+        return "DELETE FROM QRCB_CONFIG.HIS_CONFIG_INFO WHERE gmt_modified < ? LIMIT ?";
     }
 
     @Override
     public String findConfigHistoryCountByTime() {
-        return "SELECT count(*) FROM his_config_info WHERE gmt_modified < ?";
+        return "SELECT count(*) FROM QRCB_CONFIG.HIS_CONFIG_INFO WHERE gmt_modified < ?";
     }
 
     @Override
     public String findDeletedConfig() {
-        return "SELECT DISTINCT data_id, group_id, tenant_id FROM his_config_info WHERE op_type = 'D' AND gmt_modified >= ? AND gmt_modified <= ?";
+        return "SELECT DISTINCT data_id, group_id, tenant_id FROM QRCB_CONFIG.HIS_CONFIG_INFO WHERE op_type = 'D' AND gmt_modified >= ? AND gmt_modified <= ?";
     }
 
     @Override
     public String findConfigHistoryFetchRows() {
-        return "SELECT nid,data_id,group_id,tenant_id,app_name,src_ip,src_user,op_type,gmt_create,gmt_modified FROM his_config_info "
+        return "SELECT nid,data_id,group_id,tenant_id,app_name,src_ip,src_user,op_type,gmt_create,gmt_modified FROM QRCB_CONFIG.HIS_CONFIG_INFO "
                 + "WHERE data_id = ? AND group_id = ? AND tenant_id = ? ORDER BY nid DESC";
     }
 
@@ -38,14 +38,14 @@ public class HistoryConfigInfoMapperByDb2 extends AbstractMapper implements Hist
     public String pageFindConfigHistoryFetchRows(int pageNo, int pageSize) {
         final int offset = (pageNo - 1) * pageSize;
         final int limit = pageSize;
-        return  "SELECT nid,data_id,group_id,tenant_id,app_name,src_ip,src_user,op_type,gmt_create,gmt_modified FROM his_config_info "
+        return  "SELECT nid,data_id,group_id,tenant_id,app_name,src_ip,src_user,op_type,gmt_create,gmt_modified FROM QRCB_CONFIG.HIS_CONFIG_INFO "
                 + "WHERE data_id = ? AND group_id = ? AND tenant_id = ? ORDER BY nid DESC  LIMIT " + offset + "," + limit;
     }
 
     @Override
     public String detailPreviousConfigHistory() {
         return "SELECT nid,data_id,group_id,tenant_id,app_name,content,md5,src_user,src_ip,op_type,gmt_create,gmt_modified "
-                + "FROM his_config_info WHERE nid = (SELECT max(nid) FROM his_config_info WHERE id = ?) ";
+                + "FROM QRCB_CONFIG.HIS_CONFIG_INFO WHERE nid = (SELECT max(nid) FROM QRCB_CONFIG.HIS_CONFIG_INFO WHERE id = ?) ";
     }
 
     @Override
