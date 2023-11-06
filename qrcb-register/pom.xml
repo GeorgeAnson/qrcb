@@ -75,21 +75,9 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>false</filtering>
                 <excludes>
-                    <exclude>**/*.woff</exclude>
-                    <exclude>**/*.woff2</exclude>
-                    <exclude>**/*.ttf</exclude>
+                    <exclude>static/console-ui/.vscode/**</exclude>
                 </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>**/*.woff</include>
-                    <include>**/*.woff2</include>
-                    <include>**/*.ttf</include>
-                </includes>
             </resource>
         </resources>
         <plugins>
