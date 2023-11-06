@@ -44,7 +44,7 @@ nacos:
 
 spring:
   application:
-    name: qrcb-register  #@artifactId@
+    name: @artifactId@
   sql:
     init:
       platform: db2
