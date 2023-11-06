@@ -16,6 +16,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class QrcbNacosApplication {
 
     public static void main(String[] args) {
+        System.setProperty(ConfigConstants.WEB_CONTEXT_PATH, "/nacos");
         System.setProperty(ConfigConstants.STANDALONE_MODE, "true");
         System.setProperty(ConfigConstants.AUTH_ENABLED, "false");
         System.setProperty(ConfigConstants.LOG_BASEDIR, "logs");
