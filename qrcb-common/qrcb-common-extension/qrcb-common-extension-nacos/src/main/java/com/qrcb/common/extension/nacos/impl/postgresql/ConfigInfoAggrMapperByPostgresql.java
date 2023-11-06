@@ -5,6 +5,8 @@ import com.alibaba.nacos.plugin.datasource.mapper.AbstractMapper;
 import com.alibaba.nacos.plugin.datasource.mapper.ConfigInfoAggrMapper;
 import com.qrcb.common.extension.nacos.constant.QrcbDataSourceConstant;
 
+import java.util.List;
+
 /**
  * @Author Anson
  * @Create 2023-10-25
@@ -16,13 +18,13 @@ public class ConfigInfoAggrMapperByPostgresql extends AbstractMapper implements 
     /**
      * 批量删除
      *
-     * @param datumSize
+     * @param datumList
      * @return
      */
     @Override
-    public String batchRemoveAggr(int datumSize) {
+    public String batchRemoveAggr(List<String> datumList) {
         final StringBuilder placeholderString = new StringBuilder();
-        for (int i = 0; i < datumSize; i++) {
+        for (int i = 0; i < datumList.size(); i++) {
             if (i != 0) {
                 placeholderString.append(", ");
             }

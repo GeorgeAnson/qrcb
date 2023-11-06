@@ -34,7 +34,6 @@ public class HistoryConfigInfoMapperByDb2 extends AbstractMapper implements Hist
                 + "WHERE data_id = ? AND group_id = ? AND tenant_id = ? ORDER BY nid DESC";
     }
 
-    @Override
     public String pageFindConfigHistoryFetchRows(int pageNo, int pageSize) {
         final int offset = (pageNo - 1) * pageSize;
         final int limit = pageSize;

@@ -15,9 +15,10 @@
     <name>${project.artifactId}</name>
 
     <properties>
-        <spring.boot.version>2.6.11</spring.boot.version>
-        <spring.cloud.version>2021.0.4</spring.cloud.version>
-        <spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
+        <spring.boot.version>2.6.13</spring.boot.version>
+        <spring.boot.admin.starter.client>2.6.11</spring.boot.admin.starter.client>
+        <spring.cloud.version>2021.0.5</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.5.0</spring.cloud.alibaba.version>
         <transmittable.thread.local.version>2.14.3</transmittable.thread.local.version>
         <mybatis.plus.version>3.4.2</mybatis.plus.version>
         <dynamic.datasource.version>3.2.0</dynamic.datasource.version>
@@ -33,9 +34,8 @@
         <aws.s3.version>1.11.543</aws.s3.version>
         <lcn.version>4.1.0</lcn.version>
         <jsoup.version>1.13.1</jsoup.version>
-        <nacos.version>2.2.3</nacos.version>
         <captcha.version>1.2.7</captcha.version>
-        <nacos.version>2.2.3</nacos.version>
+        <nacos.version>2.2.0</nacos.version>
     </properties>
 
     <dependencyManagement>
@@ -176,7 +176,7 @@
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring.boot.admin.starter.client}</version>
             </dependency>
             <!--TTL-->
             <dependency>

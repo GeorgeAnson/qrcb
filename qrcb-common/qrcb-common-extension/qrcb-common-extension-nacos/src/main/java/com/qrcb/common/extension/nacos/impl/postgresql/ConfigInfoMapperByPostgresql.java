@@ -20,6 +20,16 @@ import java.util.Map;
 
 public class ConfigInfoMapperByPostgresql extends AbstractMapper implements ConfigInfoMapper {
 
+    private static final String DATA_ID = "dataId";
+
+    private static final String GROUP = "group";
+
+    private static final String APP_NAME = "appName";
+
+    private static final String CONTENT = "content";
+
+    private static final String TENANT = "tenant";
+
     @Override
     public String findConfigMaxId() {
         return "SELECT MAX(id) FROM config_info";

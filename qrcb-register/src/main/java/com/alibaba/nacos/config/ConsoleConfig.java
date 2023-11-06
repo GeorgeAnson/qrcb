@@ -18,7 +18,7 @@ package com.alibaba.nacos.config;
 
 import com.alibaba.nacos.core.code.ControllerMethodsCache;
 import com.alibaba.nacos.filter.XssFilter;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
@@ -40,11 +40,11 @@ import java.time.ZoneId;
  */
 @Component
 @EnableScheduling
-@AllArgsConstructor
-@PropertySource("/bootstrap.yml")
+@PropertySource("/application.properties")
 public class ConsoleConfig {
-
-    private final ControllerMethodsCache methodsCache;
+    
+    @Autowired
+    private ControllerMethodsCache methodsCache;
     
     /**
      * Init.
