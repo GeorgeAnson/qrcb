@@ -2,29 +2,17 @@ server:
   port: 8848
   tomcat:
     basedir: logs
-  servlet:
-    contextPath: /nacos
-
 
 db:
   num: 1
-  user: ${MYSQL_USER:root}
-  password: ${MYSQL_PWD:root}
-  url:
-    0: jdbc:mysql://${MYSQL_HOST:spring-mesh-mysql}:${MYSQL_PORT:3306}/${MYSQL_DB:spring_mesh_config}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
-
-
-#db:
-#  num: 1
-#  url:
-#    0: jdbc:db2://127.0.0.1:50000/EDW
-#  user:
-#    0: ${DB2_USER:db2admin}
-#  password:
-#    0: ${DB2_PWD:db2admin}
-#  pool:
-#    config:
-#      driver-class-name: com.ibm.db2.jcc.DB2Driver
+  url.0: jdbc:db2://127.0.0.1:50000/EDW
+  user: ${DB2_USER:db2admin}
+  password: ${DB2_PWD:db2admin}
+  pool:
+    config:
+      driver-class-name: com.ibm.db2.jcc.DB2Driver
+      connection-test-query: select 1 FROM SYSIBM.SYSDUMMY1
+      schema: QRCB_CONFIG
 
 
 nacos:
@@ -59,7 +47,7 @@ spring:
     name: qrcb-register  #@artifactId@
   sql:
     init:
-      platform: mysql  #db2
+      platform: db2
   security:
     enabled: true
   boot:  # 接入 spring boot admin

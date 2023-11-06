@@ -13,6 +13,8 @@ public interface ConfigConstants {
      */
     String STANDALONE_MODE = "nacos.standalone";
 
+    String WEB_CONTEXT_PATH="server.servlet.contextPath";
+
     /**
      * 是否开启认证
      */
