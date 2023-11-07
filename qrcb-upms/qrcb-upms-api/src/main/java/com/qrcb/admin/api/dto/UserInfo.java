@@ -17,6 +17,8 @@ import java.io.Serializable;
 @ApiModel(value = "用户信息")
 public class UserInfo implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * 用户基本信息
      */

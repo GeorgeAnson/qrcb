@@ -22,7 +22,7 @@ public interface RemoteParamService {
      *
      * @param key  key
      * @param from 声明成内部调用，避免MQ 等无法调用
-     * @return
+     * @return R {@link String}
      */
     @GetMapping("/param/publicValue/{key}")
     R<String> getByKey(@PathVariable("key") String key, @RequestHeader(SecurityConstants.FROM) String from);

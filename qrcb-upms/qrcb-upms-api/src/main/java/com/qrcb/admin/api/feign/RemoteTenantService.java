@@ -23,7 +23,7 @@ public interface RemoteTenantService {
      * 查询全部有效租户
      *
      * @param from 内部标志
-     * @return {@link SysTenant} in list
+     * @return R {@link SysTenant} List
      */
     @GetMapping("/tenant/list")
     R<List<SysTenant>> list(@RequestHeader(SecurityConstants.FROM) String from);

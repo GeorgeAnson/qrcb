@@ -23,7 +23,7 @@ public interface RemoteClientDetailsService {
      *
      * @param clientId 用户名
      * @param from     调用标志
-     * @return R
+     * @return R {@link SysOauthClientDetails}
      */
     @GetMapping("/client/getClientDetailsById/{clientId}")
     R<SysOauthClientDetails> getClientDetailsById(@PathVariable("clientId") String clientId,
