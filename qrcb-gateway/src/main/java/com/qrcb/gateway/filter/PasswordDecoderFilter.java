@@ -66,7 +66,7 @@ public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
 
     private final RedisTemplate redisTemplate;
 
-    private final GatewayConfigProperties gatewayConfig;
+    private final GatewayConfigProperties gatewayConfigProperties;
 
     @Override
     public GatewayFilter apply(Object config) {
@@ -148,8 +148,8 @@ public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
         return s -> {
             // 构建前端对应解密AES 因子
             AES aes = new AES(Mode.CBC, Padding.NoPadding,
-                    new SecretKeySpec(gatewayConfig.getEncodeKey().getBytes(), KEY_ALGORITHM),
-                    new IvParameterSpec(gatewayConfig.getEncodeKey().getBytes()));
+                    new SecretKeySpec(gatewayConfigProperties.getEncodeKey().getBytes(), KEY_ALGORITHM),
+                    new IvParameterSpec(gatewayConfigProperties.getEncodeKey().getBytes()));
 
             // 获取请求密码并解密
             Map<String, String> inParamsMap = HttpUtil.decodeParamMap((String) s, CharsetUtil.CHARSET_UTF_8);
