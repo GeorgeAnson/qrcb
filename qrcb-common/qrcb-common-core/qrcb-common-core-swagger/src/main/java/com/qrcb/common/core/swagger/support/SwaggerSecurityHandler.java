@@ -1,7 +1,7 @@
 package com.qrcb.common.core.swagger.support;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -23,10 +23,10 @@ import java.util.Optional;
 
 @Slf4j
 @Component
-@AllArgsConstructor
 public class SwaggerSecurityHandler implements HandlerFunction<ServerResponse> {
 
-    private final SecurityConfiguration securityConfiguration;
+    @Autowired(required = false)
+    private SecurityConfiguration securityConfiguration;
 
     /**
      * Handle the given request.
