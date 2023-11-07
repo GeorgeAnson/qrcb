@@ -29,18 +29,18 @@ public class GrayReactiveLoadBalancerClientFilter extends ReactiveLoadBalancerCl
 
     private static final int LOAD_BALANCER_CLIENT_FILTER_ORDER = 10150;
 
-    private GatewayLoadBalancerProperties loadBalancerProperties;
+    private GatewayLoadBalancerProperties gatewayLoadBalancerProperties;
 
     private LoadBalancerProperties properties;
 
     private GrayLoadBalancer grayLoadBalancer;
 
-    public GrayReactiveLoadBalancerClientFilter(GatewayLoadBalancerProperties loadBalancerProperties,
+    public GrayReactiveLoadBalancerClientFilter(GatewayLoadBalancerProperties gatewayLoadBalancerProperties,
                                                 LoadBalancerProperties properties, GrayLoadBalancer grayLoadBalancer) {
-        super(null, loadBalancerProperties, properties);
+        super(null, gatewayLoadBalancerProperties, properties);
         this.properties = properties;
         this.grayLoadBalancer = grayLoadBalancer;
-        this.loadBalancerProperties = loadBalancerProperties;
+        this.gatewayLoadBalancerProperties = gatewayLoadBalancerProperties;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class GrayReactiveLoadBalancerClientFilter extends ReactiveLoadBalancerCl
         return choose(exchange).doOnNext(response -> {
 
             if (!response.hasServer()) {
-                throw NotFoundException.create(loadBalancerProperties.isUse404(),
+                throw NotFoundException.create(gatewayLoadBalancerProperties.isUse404(),
                         "Unable to find instance for " + url.getHost());
             }
 

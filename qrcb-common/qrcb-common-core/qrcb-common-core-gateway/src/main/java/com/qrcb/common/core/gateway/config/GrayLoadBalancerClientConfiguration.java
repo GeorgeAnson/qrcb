@@ -30,8 +30,8 @@ public class GrayLoadBalancerClientConfiguration {
 
     @Bean
     public ReactiveLoadBalancerClientFilter gatewayLoadBalancerClientFilter(GrayLoadBalancer grayLoadBalancer,
-                                                                            LoadBalancerProperties properties, GatewayLoadBalancerProperties loadBalancerProperties) {
-        return new GrayReactiveLoadBalancerClientFilter(loadBalancerProperties, properties, grayLoadBalancer);
+                                                                            LoadBalancerProperties loadBalancerProperties, GatewayLoadBalancerProperties gatewayLoadBalancerProperties) {
+        return new GrayReactiveLoadBalancerClientFilter(gatewayLoadBalancerProperties, loadBalancerProperties, grayLoadBalancer);
     }
 
     @Bean
