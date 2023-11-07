@@ -5,7 +5,7 @@ server:
 
 db:
   num: 1
-  url.0: jdbc:db2://127.0.0.1:50000/EDW
+  url.0: jdbc:db2://${DB2_HOST:127.0.0.1}}:${DB2_PORT:50000}}/EDW
   user: ${DB2_USER:db2admin}
   password: ${DB2_PWD:db2admin}
   pool:
