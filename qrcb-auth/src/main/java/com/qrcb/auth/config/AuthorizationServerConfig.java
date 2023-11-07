@@ -30,11 +30,11 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    private final ClientDetailsService pigxClientDetailsServiceImpl;
+    private final ClientDetailsService qrcbClientDetailsServiceImpl;
 
     private final AuthenticationManager authenticationManagerBean;
 
-    private final UserDetailsService pigxUserDetailsService;
+    private final UserDetailsService qrcbUserDetailsService;
 
     private final AuthorizationCodeServices authorizationCodeServices;
 
@@ -47,7 +47,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     @SneakyThrows
     public void configure(ClientDetailsServiceConfigurer clients) {
-        clients.withClientDetails(pigxClientDetailsServiceImpl);
+        clients.withClientDetails(qrcbClientDetailsServiceImpl);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST).tokenStore(redisTokenStore)
-                .tokenEnhancer(tokenEnhancer).userDetailsService(pigxUserDetailsService)
+                .tokenEnhancer(tokenEnhancer).userDetailsService(qrcbUserDetailsService)
                 .authorizationCodeServices(authorizationCodeServices).authenticationManager(authenticationManagerBean)
                 .reuseRefreshTokens(false).pathMapping("/oauth/confirm_access", "/token/confirm_access")
                 .exceptionTranslator(new QrcbWebResponseExceptionTranslator());
