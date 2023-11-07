@@ -23,16 +23,18 @@ public interface RemoteDataScopeService {
 
     /**
      * 通过角色ID 查询角色列表
+     *
      * @param roleIdList 角色ID
-     * @return
+     * @return R {@link SysRole} List
      */
     @PostMapping("/role/getRoleList")
     R<List<SysRole>> getRoleList(@RequestBody List<String> roleIdList);
 
     /**
      * 获取子级部门
+     *
      * @param deptId 部门ID
-     * @return
+     * @return R {@link SysDeptRelation} List
      */
     @GetMapping("/dept/getDescendantList/{deptId}")
     R<List<SysDeptRelation>> getDescendantList(@PathVariable("deptId") Integer deptId);

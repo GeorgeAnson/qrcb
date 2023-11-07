@@ -72,15 +72,15 @@ public class UserVo implements Serializable {
     private LocalDateTime updateTime;
 
     /**
-     * 0-正常，1-删除
+     * 0=正常,1=删除
      */
-    @ApiModelProperty(value = "删除标记,1:已删除,0:正常")
+    @ApiModelProperty(value = "删除标记:1=已删除,0=正常")
     private String delFlag;
 
     /**
      * 锁定标记
      */
-    @ApiModelProperty(value = "锁定标记,0:正常,9:已锁定")
+    @ApiModelProperty(value = "锁定标记:0=正常,9=已锁定")
     private String lockFlag;
 
     /**

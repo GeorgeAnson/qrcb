@@ -62,10 +62,10 @@ public class SysUser implements Serializable {
     private LocalDateTime updateTime;
 
     /**
-     * 0-正常，1-删除
+     * 0=正常,1=删除
      */
     @TableLogic
-    @ApiModelProperty(value = "删除标记,1:已删除,0:正常")
+    @ApiModelProperty(value = "删除标记:1=已删除,0=正常")
     private String delFlag;
 
     /**

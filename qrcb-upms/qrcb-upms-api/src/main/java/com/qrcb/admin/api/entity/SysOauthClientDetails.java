@@ -101,6 +101,6 @@ public class SysOauthClientDetails extends Model<SysOauthClientDetails> {
      * 删除标记
      */
     @TableLogic
-    @ApiModelProperty(value = "删除标记,1:已删除,0:正常")
+    @ApiModelProperty(value = "删除标记:1=已删除,0=正常")
     private String delFlag;
 }

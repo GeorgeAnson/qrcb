@@ -20,9 +20,10 @@ public interface RemoteLogService {
 
     /**
      * 保存日志
+     *
      * @param sysLog 日志实体
-     * @param from 是否内部调用
-     * @return succes、false
+     * @param from   是否内部调用
+     * @return R {@link Boolean}
      */
     @PostMapping("/log/save")
     R<Boolean> saveLog(@RequestBody SysLogDto sysLog, @RequestHeader(SecurityConstants.FROM) String from);

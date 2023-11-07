@@ -1,0 +1,8 @@
+com.qrcb.common.feign.PigxFeignAutoConfiguration=\
+  com.qrcb.admin.api.feign.RemoteClientDetailsService,\
+  com.qrcb.admin.api.feign.RemoteDataScopeService,\
+  com.qrcb.admin.api.feign.RemoteLogService,\
+  com.qrcb.admin.api.feign.RemoteParamService,\
+  com.qrcb.admin.api.feign.RemoteTenantService,\
+  com.qrcb.admin.api.feign.RemoteTokenService,\
+  com.qrcb.admin.api.feign.RemoteUserService

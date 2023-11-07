@@ -15,41 +15,34 @@ import java.time.LocalDateTime;
 
 /**
  * @Author Anson
- * @Create 2023-10-23
- * @Description 角色表 <br/>
+ * @Create 2023-11-07
+ * @Description 部门管理 <br/>
  */
 
 @Data
-@ApiModel(value = "角色")
+@ApiModel(value = "部门")
 @EqualsAndHashCode(callSuper = true)
-public class SysRole extends Model<SysRole> {
+public class SysDept extends Model<SysDept> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "role_id", type = IdType.AUTO)
-    @ApiModelProperty(value = "角色编号")
-    private Integer roleId;
-
-    @NotBlank(message = "角色名称不能为空")
-    @ApiModelProperty(value = "角色名称")
-    private String roleName;
-
-    @NotBlank(message = "角色标识不能为空")
-    @ApiModelProperty(value = "角色标识")
-    private String roleCode;
-
-    @ApiModelProperty(value = "角色描述")
-    private String roleDesc;
-
-    @NotNull(message = "数据权限类型不能为空")
-    @ApiModelProperty(value = "数据权限类型")
-    private Integer dsType;
+    @TableId(value = "dept_id", type = IdType.AUTO)
+    @ApiModelProperty(value = "部门id")
+    private Integer deptId;
 
     /**
-     * 数据权限作用范围
+     * 部门名称
      */
-    @ApiModelProperty(value = "数据权限作用范围")
-    private String dsScope;
+    @NotBlank(message = "部门名称不能为空")
+    @ApiModelProperty(value = "部门名称")
+    private String name;
+
+    /**
+     * 排序
+     */
+    @NotNull(message = "排序值不能为空")
+    @ApiModelProperty(value = "排序值")
+    private Integer sort;
 
     /**
      * 创建时间
@@ -64,7 +57,13 @@ public class SysRole extends Model<SysRole> {
     private LocalDateTime updateTime;
 
     /**
-     * 删除标识（0=正常,1=删除）
+     * 父级部门id
+     */
+    @ApiModelProperty(value = "父级部门id")
+    private Integer parentId;
+
+    /**
+     * 是否删除 1：已删除 0：正常
      */
     @TableLogic
     @ApiModelProperty(value = "删除标记:1=已删除,0=正常")
