@@ -17,5 +17,6 @@
 
     <modules>
         <module>qrcb-upms-api</module>
+        <module>qrcb-upms-biz</module>
     </modules>
 </project>

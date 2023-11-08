@@ -19,6 +19,16 @@ public interface SecurityConstants {
     String REFRESH_TOKEN = "refresh_token";
 
     /**
+     * 验证码有效期
+     */
+    int CODE_TIME = 120;
+
+    /**
+     * 验证码长度
+     */
+    String CODE_SIZE = "4";
+
+    /**
      * 角色前缀
      */
     String ROLE = "ROLE_";
@@ -47,6 +57,18 @@ public interface SecurityConstants {
      * 自定义登录URL
      */
     String MOBILE_TOKEN_URL = "/mobile/token/*";
+
+    /**
+     * 微信获取OPENID
+     */
+    String WX_AUTHORIZATION_CODE_URL = "https://api.weixin.qq.com/sns/oauth2/access_token"
+            + "?appid=%s&secret=%s&code=%s&grant_type=authorization_code";
+
+    /**
+     * 微信小程序OPENID
+     */
+    String MINI_APP_AUTHORIZATION_CODE_URL = "https://api.weixin.qq.com/sns/jscode2session"
+            + "?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code";
 
     /**
      * oauth 相关前缀
