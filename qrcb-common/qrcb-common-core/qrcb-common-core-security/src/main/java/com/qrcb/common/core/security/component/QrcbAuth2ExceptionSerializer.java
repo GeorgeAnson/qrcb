@@ -10,7 +10,7 @@ import lombok.SneakyThrows;
 /**
  * @Author Anson
  * @Create 2023-10-20
- * @Description <br/>
+ * @Description OAuth2 异常格式化 <br/>
  */
 
 public class QrcbAuth2ExceptionSerializer extends StdSerializer<QrcbAuth2Exception> {

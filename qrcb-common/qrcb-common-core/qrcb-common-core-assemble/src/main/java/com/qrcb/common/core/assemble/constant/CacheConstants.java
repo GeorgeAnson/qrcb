@@ -21,6 +21,26 @@ public interface CacheConstants {
     String USER_DETAILS = "user_details";
 
     /**
+     * 字典信息缓存
+     */
+    String DICT_DETAILS = "dict_details";
+
+    /**
+     * 菜单信息缓存
+     */
+    String MENU_DETAILS = "menu_details";
+
+    /**
+     * 角色信息缓存
+     */
+    String ROLE_DETAILS = "role_details";
+
+    /**
+     * 参数缓存
+     */
+    String PARAMS_DETAILS = "params_details";
+
+    /**
      * oauth 客户端信息
      */
     String CLIENT_DETAILS_KEY = "qrcb_oauth:client:details";
@@ -36,6 +56,11 @@ public interface CacheConstants {
     String ROUTE_JVM_RELOAD_TOPIC = "gateway_jvm_route_reload_topic";
 
     /**
+     * redis 重新加载 路由信息
+     */
+    String ROUTE_REDIS_RELOAD_TOPIC = "upms_redis_route_reload_topic";
+
+    /**
      * 验证码前缀
      */
     String DEFAULT_CODE_KEY = "DEFAULT_CODE_KEY:";
@@ -44,4 +69,9 @@ public interface CacheConstants {
      * 客户端配置缓存
      */
     String CLIENT_FLAG = "client_config_flag";
+
+    /**
+     * 租户缓存 (不区分租户)
+     */
+    String TENANT_DETAILS = GLOBALLY + "tenant_details";
 }

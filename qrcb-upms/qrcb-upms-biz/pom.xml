@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.qrcb</groupId>
+        <artifactId>qrcb-upms</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>qrcb-upms-biz</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+
+    <dependencies>
+        <!-- 用户权限管理系统 api -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-upms-api</artifactId>
+        </dependency>
+        <!-- 日志模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-log</artifactId>
+        </dependency>
+        <!-- 数据处理模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-data</artifactId>
+        </dependency>
+        <!-- swagger 模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-swagger</artifactId>
+        </dependency>
+        <!-- 文件系统扩展模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-extension-oss</artifactId>
+        </dependency>
+        <!-- 安全依赖模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-security</artifactId>
+        </dependency>
+        <!-- xss 安全过滤扩展模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-extension-xss</artifactId>
+        </dependency>
+        <!-- 网关动态路由支持模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-gateway</artifactId>
+        </dependency>
+        <!-- sentinel 模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-sentinel</artifactId>
+        </dependency>
+        <!-- 灰度路由控制模块 -->
+        <dependency>
+            <groupId>com.qrcb</groupId>
+            <artifactId>qrcb-common-core-gray</artifactId>
+        </dependency>
+        <!--注册中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--配置中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!--mybatis-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <!-- druid 连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- DB2数据库 -->
+        <dependency>
+            <groupId>com.ibm.db2</groupId>
+            <artifactId>db2jcc_license_cu</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.db2.jcc</groupId>
+            <artifactId>db2jcc4</artifactId>
+        </dependency>
+        <!--web 模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--undertow容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <skip>${docker.skip}</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
