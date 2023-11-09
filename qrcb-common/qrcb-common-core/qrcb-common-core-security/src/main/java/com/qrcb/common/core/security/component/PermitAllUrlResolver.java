@@ -25,6 +25,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.springframework.web.util.pattern.PathPattern;
 
 import java.lang.reflect.Method;
 import java.util.*;
@@ -68,8 +69,8 @@ public class PermitAllUrlResolver implements InitializingBean {
             // 2. 当类上不包含 @Inner 注解则获取该方法的注解
             if (controller == null) {
                 Inner method = AnnotationUtils.findAnnotation(handlerMethod.getMethod(), Inner.class);
-                Optional.ofNullable(method).ifPresent(inner -> info.getPatternsCondition().getPatterns()
-                        .forEach(url -> this.filterPath(url, info, map)));
+                Optional.ofNullable(method).ifPresent(inner -> info.getPathPatternsCondition().getPatterns()
+                        .forEach(pathPattern -> this.filterPath(pathPattern.getPatternString(), info, map)));
                 continue;
             }
 
@@ -78,7 +79,7 @@ public class PermitAllUrlResolver implements InitializingBean {
             Method[] methods = beanType.getDeclaredMethods();
             Method method = handlerMethod.getMethod();
             if (ArrayUtil.contains(methods, method)) {
-                info.getPatternsCondition().getPatterns().forEach(url -> filterPath(url, info, map));
+                info.getPathPatternsCondition().getPatterns().forEach(pathPattern -> filterPath(pathPattern.getPatternString(), info, map));
             }
         }
 
@@ -112,7 +113,7 @@ public class PermitAllUrlResolver implements InitializingBean {
     }
 
     /**
-     * 针对Pathvariable 请求安全检查。增加启动好使影响启动效率 请注意
+     * 针对 PathVariable 请求安全检查。增加启动好使影响启动效率 请注意
      * @param url 接口路径
      * @param rq 当前请求的元信息
      * @param map springmvc 接口列表
@@ -131,7 +132,8 @@ public class PermitAllUrlResolver implements InitializingBean {
             }
 
             // 如果请求方法路径匹配
-            Set<String> patterns = info.getPatternsCondition().getPatterns();
+            Set<String> patterns = info.getPathPatternsCondition().getPatterns().stream()
+                    .map(PathPattern::getPatternString).collect(Collectors.toSet());
             for (String pattern : patterns) {
                 // 跳过自身
                 if (StrUtil.equals(url, pattern)) {
