@@ -5,11 +5,13 @@ import cn.hutool.core.util.StrUtil;
 import com.qrcb.admin.api.dto.UserInfo;
 import com.qrcb.admin.api.entity.SysUser;
 import com.qrcb.admin.api.feign.RemoteUserService;
+import com.qrcb.common.core.assemble.constant.CacheConstants;
 import com.qrcb.common.core.assemble.constant.CommonConstants;
 import com.qrcb.common.core.assemble.constant.SecurityConstants;
 import com.qrcb.common.core.assemble.util.R;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -38,12 +40,20 @@ public class QrcbUserDetailsServiceImpl implements QrcbUserDetailsService{
     /**
      * 用户密码登录
      * @param username 用户名
-     * @return
+     * @return {@link UserDetails}
      * @throws UsernameNotFoundException
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        Cache cache = cacheManager.getCache(CacheConstants.USER_DETAILS);
+        if (cache != null && cache.get(username) != null) {
+            return cache.get(username, QrcbUser.class);
+        }
+
+        R<UserInfo> result = remoteUserService.info(username, SecurityConstants.FROM_IN);
+        UserDetails userDetails = getUserDetails(result);
+        cache.put(username, userDetails);
+        return userDetails;
     }
 
     /**
@@ -54,7 +64,7 @@ public class QrcbUserDetailsServiceImpl implements QrcbUserDetailsService{
      */
     @Override
     public UserDetails loadUserBySocial(String inStr) throws UsernameNotFoundException {
-        return null;
+        return getUserDetails(remoteUserService.social(inStr, SecurityConstants.FROM_IN));
     }
 
     /**
