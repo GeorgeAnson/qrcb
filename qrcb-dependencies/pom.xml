@@ -22,7 +22,7 @@
         <transmittable.thread.local.version>2.14.3</transmittable.thread.local.version>
         <mybatis.plus.version>3.4.2</mybatis.plus.version>
         <dynamic.datasource.version>3.2.0</dynamic.datasource.version>
-        <druid.version>1.2.5</druid.version>
+<!--        <druid.version>1.2.5</druid.version>-->
         <hutool.version>5.8.20</hutool.version>
         <jasypt.version>3.0.5</jasypt.version>
         <db2.version>4.28.11</db2.version>
@@ -196,11 +196,11 @@
                 <version>${dynamic.datasource.version}</version>
             </dependency>
             <!-- druid 连接池 -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba</groupId>-->
+<!--                <artifactId>druid-spring-boot-starter</artifactId>-->
+<!--                <version>${druid.version}</version>-->
+<!--            </dependency>-->
             <!-- DB2数据库 -->
             <dependency>
                 <groupId>com.ibm.db2</groupId>

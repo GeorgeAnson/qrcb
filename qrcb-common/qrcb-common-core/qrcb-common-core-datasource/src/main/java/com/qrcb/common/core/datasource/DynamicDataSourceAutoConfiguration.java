@@ -2,7 +2,7 @@ package com.qrcb.common.core.datasource;
 
 import com.baomidou.dynamic.datasource.processor.DsProcessor;
 import com.baomidou.dynamic.datasource.provider.DynamicDataSourceProvider;
-import com.qrcb.common.core.datasource.config.DruidDataSourceProperties;
+import com.qrcb.common.core.datasource.config.HikariDataSourceProperties;
 import com.qrcb.common.core.datasource.config.JdbcDynamicDataSourceProvider;
 import com.qrcb.common.core.datasource.config.LastParamDsProcessor;
 import com.qrcb.common.core.datasource.config.WebMvcConfig;
@@ -24,12 +24,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @AllArgsConstructor
 @AutoConfigureAfter(DataSourceAutoConfiguration.class)
-@EnableConfigurationProperties(DruidDataSourceProperties.class)
+@EnableConfigurationProperties(HikariDataSourceProperties.class)
 public class DynamicDataSourceAutoConfiguration {
 
     private final StringEncryptor stringEncryptor;
 
-    private final DruidDataSourceProperties properties;
+    private final HikariDataSourceProperties properties;
 
     @Bean
     public DynamicDataSourceProvider dynamicDataSourceProvider() {

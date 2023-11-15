@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties("spring.datasource.druid")
-public class DruidDataSourceProperties {
+@ConfigurationProperties("spring.datasource.hikari")
+public class HikariDataSourceProperties {
 
     /**
      * 数据源用户名
@@ -28,7 +28,7 @@ public class DruidDataSourceProperties {
     /**
      * jdbc url
      */
-    private String url;
+    private String jdbcUrl;
 
     /**
      * 数据源驱动
@@ -36,8 +36,13 @@ public class DruidDataSourceProperties {
     private String driverClassName;
 
     /**
+     * 数据源 Schema
+     */
+    private String schema;
+
+    /**
      * 查询数据源的SQL
      */
-    private String queryDsSql = "select * from gen_datasource_conf where del_flag = 0";
+    private String queryDsSql = "SELECT * FROM QRCB_CODEGEN.GEN_DATASOURCE_CONF WHERE DEL_FLAG = 0";
 
 }

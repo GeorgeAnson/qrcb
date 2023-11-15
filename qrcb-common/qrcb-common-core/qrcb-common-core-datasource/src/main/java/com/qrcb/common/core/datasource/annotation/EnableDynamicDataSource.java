@@ -1,6 +1,5 @@
 package com.qrcb.common.core.datasource.annotation;
 
-import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import com.qrcb.common.core.datasource.DynamicDataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Import;
@@ -17,7 +16,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@EnableAutoConfiguration(exclude = { DruidDataSourceAutoConfigure.class })
+@EnableAutoConfiguration
 @Import(DynamicDataSourceAutoConfiguration.class)
 public @interface EnableDynamicDataSource {
 }

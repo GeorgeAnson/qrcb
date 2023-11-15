@@ -19,7 +19,7 @@ public interface DataSourceConstants {
     String DS_MASTER = "master";
 
     /**
-     * jdbcurl
+     * jdbc-url
      */
     String DS_JDBC_URL = "url";
 
@@ -47,6 +47,11 @@ public interface DataSourceConstants {
      * 数据库名称
      */
     String DS_NAME = "ds_name";
+
+    /**
+     * 数据库 Schema
+     */
+    String DS_SCHEMA="ds_schema";
 
     /**
      * 主机类型
