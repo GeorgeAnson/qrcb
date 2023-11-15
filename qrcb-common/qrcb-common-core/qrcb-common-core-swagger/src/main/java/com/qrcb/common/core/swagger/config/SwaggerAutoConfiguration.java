@@ -1,10 +1,20 @@
 package com.qrcb.common.core.swagger.config;
 
+import org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties;
+import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
+import org.springframework.boot.actuate.autoconfigure.web.server.ManagementPortType;
+import org.springframework.boot.actuate.endpoint.ExposableEndpoint;
+import org.springframework.boot.actuate.endpoint.web.*;
+import org.springframework.boot.actuate.endpoint.web.annotation.ControllerEndpointsSupplier;
+import org.springframework.boot.actuate.endpoint.web.annotation.ServletEndpointsSupplier;
+import org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.util.StringUtils;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -16,16 +26,13 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.ApiSelectorBuilder;
 import springfox.documentation.spring.web.plugins.Docket;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 
 /**
  * @Author Anson
  * @Create 2023-10-24
- * @Description swagger配置<br/>
+ * @Description swagger配置<br />
  * 禁用方法1：使用注解 @Profile({"dev","test"}) 表示在开发或测试环境开启，而在生产关闭。 <br/>
  * （推荐使用） 禁用方法2：使用注解 @ConditionalOnProperty(name = "swagger.enable", havingValue = "true") ，
  * 然后在测试配置或者开发配置中添加 swagger.enable=true 即可开启，生产环境不填则默认关闭 Swagger。 <br/>
@@ -128,4 +135,31 @@ public class SwaggerAutoConfiguration {
                 .version(swaggerProperties.getVersion()).build();
     }
 
+    @Bean
+    public WebMvcEndpointHandlerMapping webEndpointServletHandlerMapping(
+            WebEndpointsSupplier webEndpointsSupplier,
+            ServletEndpointsSupplier servletEndpointsSupplier,
+            ControllerEndpointsSupplier controllerEndpointsSupplier,
+            EndpointMediaTypes endpointMediaTypes, CorsEndpointProperties corsProperties,
+            WebEndpointProperties webEndpointProperties, Environment environment) {
+
+        List<ExposableEndpoint<?>> allEndpoints = new ArrayList<>();
+        Collection<ExposableWebEndpoint> webEndpoints = webEndpointsSupplier.getEndpoints();
+        allEndpoints.addAll(webEndpoints);
+        allEndpoints.addAll(servletEndpointsSupplier.getEndpoints());
+        allEndpoints.addAll(controllerEndpointsSupplier.getEndpoints());
+        String basePath = webEndpointProperties.getBasePath();
+        EndpointMapping endpointMapping = new EndpointMapping(basePath);
+        boolean should = this.shouldRegisterLinksMapping(webEndpointProperties, environment, basePath);
+        return new WebMvcEndpointHandlerMapping(endpointMapping, webEndpoints, endpointMediaTypes,
+                corsProperties.toCorsConfiguration(), new EndpointLinksResolver(allEndpoints, basePath),
+                should, null);
+    }
+
+    private boolean shouldRegisterLinksMapping(WebEndpointProperties webEndpointProperties,
+                                               Environment environment, String basePath) {
+        return webEndpointProperties.getDiscovery().isEnabled()
+                && (StringUtils.hasText(basePath) || ManagementPortType.get(environment)
+                .equals(ManagementPortType.DIFFERENT));
+    }
 }
