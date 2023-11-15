@@ -15,6 +15,11 @@
     <name>${project.artifactId}</name>
 
     <dependencies>
+        <!-- grpc依赖 -->
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-all</artifactId>
+        </dependency>
         <!--gateway 网关依赖,内置 webflux 依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

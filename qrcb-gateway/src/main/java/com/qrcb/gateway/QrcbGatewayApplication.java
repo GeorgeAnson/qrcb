@@ -1,7 +1,6 @@
 package com.qrcb.gateway;
 
 import com.qrcb.common.core.gateway.annotation.EnableQrcbDynamicRoute;
-import com.qrcb.common.core.swagger.annotation.EnableQrcbSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -12,7 +11,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Description 网关应用 <br/>
  */
 
-@EnableQrcbSwagger2
 @EnableQrcbDynamicRoute
 @EnableDiscoveryClient
 @SpringBootApplication
