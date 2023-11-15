@@ -22,7 +22,6 @@
         <transmittable.thread.local.version>2.14.3</transmittable.thread.local.version>
         <mybatis.plus.version>3.4.2</mybatis.plus.version>
         <dynamic.datasource.version>3.2.0</dynamic.datasource.version>
-<!--        <druid.version>1.2.5</druid.version>-->
         <hutool.version>5.8.20</hutool.version>
         <jasypt.version>3.0.5</jasypt.version>
         <db2.version>4.28.11</db2.version>
@@ -34,6 +33,7 @@
         <aws.s3.version>1.11.543</aws.s3.version>
         <lcn.version>4.1.0</lcn.version>
         <jsoup.version>1.13.1</jsoup.version>
+        <grpc.version>1.59.0</grpc.version>
         <captcha.version>1.2.7</captcha.version>
         <nacos.version>2.2.0</nacos.version>
     </properties>
@@ -286,6 +286,11 @@
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-all</artifactId>
+                <version>${grpc.version}</version>
             </dependency>
             <!-- nacos 数据库插件 -->
             <dependency>
