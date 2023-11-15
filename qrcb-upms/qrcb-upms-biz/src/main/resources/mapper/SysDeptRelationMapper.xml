@@ -17,19 +17,19 @@
     <!-- 更新部门关系 -->
     <update id="updateDeptRelations">
         DELETE
-        FROM sys_dept_relation
+        FROM qrcb_upms.sys_dept_relation
         WHERE descendant IN (SELECT temp.descendant
-                             FROM (SELECT descendant FROM sys_dept_relation WHERE ancestor = #{descendant}) temp)
+                             FROM (SELECT descendant FROM qrcb_upms.sys_dept_relation WHERE ancestor = #{descendant}) temp)
           AND ancestor IN (SELECT temp.ancestor
                            FROM (SELECT ancestor
-                                 FROM sys_dept_relation
+                                 FROM qrcb_upms.sys_dept_relation
                                  WHERE descendant = #{descendant}
                                    AND ancestor != descendant) temp);
 
-        INSERT INTO sys_dept_relation (ancestor, descendant)
+        INSERT INTO qrcb_upms.sys_dept_relation (ancestor, descendant)
         SELECT a.ancestor, b.descendant
-        FROM sys_dept_relation a
-                 CROSS JOIN sys_dept_relation b
+        FROM qrcb_upms.sys_dept_relation a
+                 CROSS JOIN qrcb_upms.sys_dept_relation b
         WHERE a.descendant = #{ancestor}
           AND b.ancestor = #{descendant};
     </update>
@@ -37,10 +37,10 @@
     <!--删除部门-->
     <delete id="deleteDeptRelationsById">
         DELETE
-        FROM sys_dept_relation
+        FROM qrcb_upms.sys_dept_relation
         WHERE descendant IN (SELECT temp.descendant
                              FROM (SELECT descendant
-                                   FROM sys_dept_relation
+                                   FROM qrcb_upms.sys_dept_relation
                                    WHERE ancestor = #{id}) temp)
     </delete>
 </mapper>

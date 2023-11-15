@@ -18,8 +18,8 @@
 	<!-- 通过用户ID，查询角色信息-->
 	<select id="listRolesByUserId" resultMap="BaseResultMap">
 		SELECT r.*
-		FROM sys_role r,
-			 sys_user_role ur
+		FROM qrcb_upms.sys_role r,
+			 qrcb_upms.sys_user_role ur
 		WHERE r.role_id = ur.role_id
 		  AND r.del_flag = 0
 		  and ur.user_id IN (#{userId})
