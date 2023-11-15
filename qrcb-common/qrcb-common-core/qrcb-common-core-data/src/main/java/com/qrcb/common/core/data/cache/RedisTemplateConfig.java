@@ -2,6 +2,7 @@ package com.qrcb.common.core.data.cache;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,8 +21,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableCaching
 @Configuration
 @AllArgsConstructor
-@AutoConfigureBefore(name = { "org.redisson.spring.starter.RedissonAutoConfiguration",
-        "org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration" })
+@AutoConfigureBefore(RedisAutoConfiguration.class)
 public class RedisTemplateConfig {
 
 
@@ -36,5 +36,31 @@ public class RedisTemplateConfig {
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         return redisTemplate;
     }
+
+
+//    @Bean
+//    @ConditionalOnProperty(value = "spring.redis.cluster.enable", havingValue = "true")
+//    public LettuceConnectionFactory lettuceConnectionFactory(RedisProperties redisProperties) {
+//        RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration(redisProperties.getCluster().getNodes());
+//        redisClusterConfiguration.setPassword(redisProperties.getPassword());
+//
+//        // https://github.com/lettuce-io/lettuce-core/wiki/Redis-Cluster#user-content-refreshing-the-cluster-topology-view
+//        ClusterTopologyRefreshOptions clusterTopologyRefreshOptions = ClusterTopologyRefreshOptions.builder()
+//                .enablePeriodicRefresh()
+//                .enableAllAdaptiveRefreshTriggers()
+//                .refreshPeriod(Duration.ofSeconds(5))
+//                .build();
+//
+//        ClusterClientOptions clusterClientOptions = ClusterClientOptions.builder()
+//                .timeoutOptions(TimeoutOptions.enabled(Duration.ofSeconds(5)))
+//                .topologyRefreshOptions(clusterTopologyRefreshOptions).build();
+//
+//        // https://github.com/lettuce-io/lettuce-core/wiki/ReadFrom-Settings
+//        LettuceClientConfiguration lettuceClientConfiguration = LettuceClientConfiguration.builder()
+//                .readFrom(ReadFrom.REPLICA_PREFERRED)
+//                .clientOptions(clusterClientOptions).build();
+//
+//        return new LettuceConnectionFactory(redisClusterConfiguration, lettuceClientConfiguration);
+//    }
 
 }
