@@ -21,12 +21,12 @@ import java.util.Map;
 
 public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvider {
 
-    private final DruidDataSourceProperties properties;
+    private final HikariDataSourceProperties properties;
 
     private final StringEncryptor stringEncryptor;
 
-    public JdbcDynamicDataSourceProvider(StringEncryptor stringEncryptor, DruidDataSourceProperties properties) {
-        super(properties.getDriverClassName(), properties.getUrl(), properties.getUsername(), properties.getPassword());
+    public JdbcDynamicDataSourceProvider(StringEncryptor stringEncryptor, HikariDataSourceProperties properties) {
+        super(properties.getDriverClassName(), properties.getJdbcUrl(), properties.getUsername(), properties.getPassword());
         this.stringEncryptor = stringEncryptor;
         this.properties = properties;
     }
@@ -49,6 +49,7 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
             String password = rs.getString(DataSourceConstants.DS_USER_PWD);
             Integer confType = rs.getInt(DataSourceConstants.DS_CONFIG_TYPE);
             String dsType = rs.getString(DataSourceConstants.DS_TYPE);
+            String schema = rs.getString(DataSourceConstants.DS_SCHEMA);
 
             String url;
             // JDBC 配置形式
@@ -72,6 +73,7 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
             property.setUsername(username);
             property.setPassword(stringEncryptor.decrypt(password));
             property.setUrl(url);
+            property.setSchema(schema);
             map.put(name, property);
         }
 
@@ -79,7 +81,8 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
         DataSourceProperty property = new DataSourceProperty();
         property.setUsername(properties.getUsername());
         property.setPassword(properties.getPassword());
-        property.setUrl(properties.getUrl());
+        property.setUrl(properties.getJdbcUrl());
+        property.setSchema(properties.getSchema());
         map.put(DataSourceConstants.DS_MASTER, property);
         return map;
     }
