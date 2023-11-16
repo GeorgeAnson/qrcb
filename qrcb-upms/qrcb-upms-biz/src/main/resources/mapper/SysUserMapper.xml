@@ -19,7 +19,7 @@
 		<result column="tenant_id" property="tenantId"/>
 		<result column="dept_name" property="deptName"/>
 		<collection property="roleList" ofType="com.qrcb.admin.api.entity.SysRole"
-					select="com.pig4cloud.pigx.admin.mapper.SysRoleMapper.listRolesByUserId" column="user_id">
+					select="com.qrcb.admin.mapper.SysRoleMapper.listRolesByUserId" column="user_id">
 		</collection>
 	</resultMap>
 
