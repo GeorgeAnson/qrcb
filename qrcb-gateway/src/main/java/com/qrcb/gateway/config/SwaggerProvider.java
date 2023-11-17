@@ -1,4 +1,4 @@
-package com.qrcb.common.core.swagger.support;
+package com.qrcb.gateway.config;
 
 import com.qrcb.common.core.swagger.config.SwaggerProperties;
 import lombok.RequiredArgsConstructor;
@@ -6,6 +6,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 import org.springframework.cloud.gateway.support.NameUtils;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 
 @Primary
 @Component
+@Import(SwaggerProperties.class)
 @RequiredArgsConstructor
 public class SwaggerProvider implements SwaggerResourcesProvider {
 

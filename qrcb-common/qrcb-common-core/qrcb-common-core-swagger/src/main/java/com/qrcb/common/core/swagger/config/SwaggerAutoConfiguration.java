@@ -62,6 +62,8 @@ public class SwaggerAutoConfiguration {
         if (swaggerProperties.getBasePath().isEmpty()) {
             swaggerProperties.getBasePath().add(BASE_PATH);
         }
+        List<Predicate<String>> basePath = new ArrayList();
+        swaggerProperties.getBasePath().forEach(path -> basePath.add(PathSelectors.ant(path)));
 
         // exclude-path处理
         if (swaggerProperties.getExcludePath().isEmpty()) {
@@ -72,11 +74,9 @@ public class SwaggerAutoConfiguration {
 
         // 版本请求头处理
         List<RequestParameter> pars = new ArrayList<>();
-
         RequestParameterBuilder versionPar = new RequestParameterBuilder().description("灰度路由版本信息")
                 .in(ParameterType.HEADER).name("VERSION").required(false)
                 .query(param -> param.model(model -> model.scalarModel(ScalarType.STRING)));
-
         pars.add(versionPar.build());
 
         ApiSelectorBuilder builder = new Docket(DocumentationType.SWAGGER_2).host(swaggerProperties.getHost())
