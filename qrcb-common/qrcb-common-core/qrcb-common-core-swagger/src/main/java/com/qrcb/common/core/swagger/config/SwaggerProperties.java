@@ -3,6 +3,8 @@ package com.qrcb.common.core.swagger.config;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,8 @@ import java.util.List;
  */
 
 @Data
+@Configuration
+@RefreshScope
 @ConfigurationProperties("swagger")
 public class SwaggerProperties {
 
