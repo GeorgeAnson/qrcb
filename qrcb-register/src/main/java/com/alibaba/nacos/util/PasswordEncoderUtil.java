@@ -26,8 +26,8 @@ public class PasswordEncoderUtil {
     public static void main(String[] args) {
 
         System.out.println(new BCryptPasswordEncoder().encode("nacos"));
-        System.out.println(uiEncrypt("123456"));
-        System.out.println(uiDecrypt("ekIkskF9/LB5PreVOe6Jcg=="));
+        System.out.println(uiEncrypt("Qjnx456!@#"));
+        System.out.println(uiDecrypt("Ig6zkCAypBOqPbQ4KRwtXw=="));
     }
 
     /**
