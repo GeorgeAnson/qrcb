@@ -6,6 +6,8 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.Mode;
 import cn.hutool.crypto.Padding;
 import cn.hutool.crypto.symmetric.AES;
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.crypto.spec.IvParameterSpec;
@@ -25,14 +27,67 @@ public class PasswordEncoderUtil {
 
     public static void main(String[] args) {
 
-        System.out.println(new BCryptPasswordEncoder().encode("nacos"));
+        //nacos 用户密码加密解密
+        System.out.println(encode("nacos"));
+        System.out.println(matches("nacos","$2a$10$.cxYtbX4qRuLw6h/eeLNSO/6RAOywvCZDAJ0yDtFMbw2zNhv33vMy"));
+
+
+        //swagger文档和前端传密码加密解密
         System.out.println(uiEncrypt("Qjnx456!@#"));
         System.out.println(uiDecrypt("Ig6zkCAypBOqPbQ4KRwtXw=="));
+
+
+        //请求头Basic加密解密
+        System.out.println(basicEncode("admin", "admin"));
+        System.out.println(basicDecode("YWRtaW46YWRtaW4="));
+
+
+        //配置文件加解密
+        String rootPwdSalt = "qrcb";//根秘钥
+        System.out.println(configEncrypt("admin",rootPwdSalt));
+        System.out.println(configDecrypt("0c4bdypk16OC3zYZIgsEFA==",rootPwdSalt));
+    }
+
+
+    /**
+     * 配置文件加密
+     * @param plaintext 明文
+     * @param rootPwdSalt 根秘钥：qrcb
+     * @return 密文
+     */
+    public static String configEncrypt(String plaintext, String rootPwdSalt) {
+        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+        //加密配置
+        EnvironmentStringPBEConfig config = new EnvironmentStringPBEConfig();
+        config.setAlgorithm("PBEWithMD5AndDES");//加密方式
+        config.setPassword(rootPwdSalt);//加密所需的salt(盐)
+        encryptor.setConfig(config); //应用配置
+
+        return encryptor.encrypt(plaintext);
+    }
+
+
+    /**
+     * 配置文件解密
+     * @param ciphertext 密文
+     * @param rootPwdSalt 根秘钥：qrcb
+     * @return 明文
+     */
+    public static String configDecrypt(String ciphertext, String rootPwdSalt) {
+        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+        //加密配置
+        EnvironmentStringPBEConfig config = new EnvironmentStringPBEConfig();
+        config.setAlgorithm("PBEWithMD5AndDES");//加密方式
+        config.setPassword(rootPwdSalt);//加密所需的salt(盐)
+        encryptor.setConfig(config); //应用配置
+
+        return encryptor.decrypt(ciphertext);
     }
 
     /**
      * nacos 用户密码匹配
-     * @param raw 明文
+     *
+     * @param raw     明文
      * @param encoded 密文
      * @return 是否匹配
      */
@@ -42,6 +97,7 @@ public class PasswordEncoderUtil {
 
     /**
      * nacos 用户密码加密
+     *
      * @param raw 明文
      * @return 密文
      */
@@ -92,5 +148,30 @@ public class PasswordEncoderUtil {
                 new IvParameterSpec(encodeKey.getBytes()));
         byte[] result = aes.decrypt(Base64.decode(content.getBytes(StandardCharsets.UTF_8)));
         return new String(result, StandardCharsets.UTF_8);
+    }
+
+
+    /**
+     * Basic 请求头加密
+     *
+     * @param clientId     客户端ID
+     * @param clientSecret 客户端秘钥
+     * @return 加密结果
+     */
+    public static String basicEncode(String clientId, String clientSecret) {
+        String content = clientId + StrUtil.COLON + clientSecret;
+        return Base64.encode(content, CharsetUtil.CHARSET_UTF_8);
+    }
+
+
+    /**
+     * 请求头 Basic 解密
+     *
+     * @param content 请求头加密字符串
+     * @return 解密结果
+     */
+    public static String basicDecode(String content) {
+        String decodeStr = Base64.decodeStr(content, CharsetUtil.CHARSET_UTF_8);
+        return "client_id:" + decodeStr.split(StrUtil.COLON)[0] + ";client_secret:" + decodeStr.split(StrUtil.COLON)[1];
     }
 }
