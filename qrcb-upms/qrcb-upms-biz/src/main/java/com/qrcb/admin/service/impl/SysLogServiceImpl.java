@@ -57,9 +57,9 @@ public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> impleme
             wrapper.eq(SysLog::getType, sysLogDto.getType());
         }
 
-        if (ArrayUtil.isNotEmpty(sysLogDto.getCreateTime())) {
-            wrapper.ge(SysLog::getCreateTime, sysLogDto.getCreateTime()[0]).le(SysLog::getCreateTime,
-                    sysLogDto.getCreateTime()[1]);
+        if (ArrayUtil.isNotEmpty(sysLogDto.getPeriod())) {
+            wrapper.ge(SysLog::getCreateTime, sysLogDto.getPeriod().split(StrUtil.AT)[0])
+                    .le(SysLog::getCreateTime, sysLogDto.getPeriod().split(StrUtil.AT)[1]);
         }
 
         return baseMapper.selectPage(page, wrapper);
@@ -71,7 +71,7 @@ public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> impleme
         return SqlHelper.retBool(TenantBroker.applyAs(sysLogDto::getTenantId, tenantId -> {
             TenantContextHolder.setTenantId(tenantId);
             SysLog log = new SysLog();
-            BeanUtils.copyProperties(sysLogDto, log, "createTime");
+            BeanUtils.copyProperties(sysLogDto, log);
             return baseMapper.insert(log);
         }));
     }
