@@ -41,6 +41,11 @@ public class SysLogDto implements Serializable {
     private String createBy;
 
     /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
+
+    /**
      * 更新时间
      */
     private LocalDateTime updateTime;
@@ -86,9 +91,9 @@ public class SysLogDto implements Serializable {
     private String serviceId;
 
     /**
-     * 创建时间区间 [开始时间，结束时间]
+     * 时间区间 [开始时间，结束时间]
      */
-    private LocalDateTime[] createTime;
+    private String period;
 
     /**
      * 租户编号

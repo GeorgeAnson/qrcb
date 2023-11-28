@@ -34,12 +34,12 @@ public class SysLogController {
      * 简单分页查询
      *
      * @param page   分页对象
-     * @param sysLog 系统日志
+     * @param sysLogDto 系统日志
      * @return {@link SysLog} Page
      */
     @GetMapping("/page")
-    public R<IPage<SysLog>> getLogPage(Page<SysLog> page, SysLogDto sysLog) {
-        return R.ok(sysLogService.getLogByPage(page, sysLog));
+    public R<IPage<SysLog>> getLogPage(Page<SysLog> page, SysLogDto sysLogDto) {
+        return R.ok(sysLogService.getLogByPage(page, sysLogDto));
     }
 
     /**
