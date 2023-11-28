@@ -119,8 +119,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     @CacheEvict(value = CacheConstants.USER_DETAILS, key = "#userDto.username")
     public Boolean updateUserInfo(UserDto userDto) {
-        UserVo userVO = baseMapper.getUserVoByUsername(userDto.getUsername());
-        if (!ENCODER.matches(userDto.getPassword(), userVO.getPassword())) {
+        UserVo userVo = baseMapper.getUserVoByUsername(userDto.getUsername());
+        if (!ENCODER.matches(userDto.getPassword(), userVo.getPassword())) {
             log.info("原密码错误，修改个人信息失败:{}", userDto.getUsername());
             throw new CheckedException("原密码错误，修改个人信息失败");
         }
@@ -130,7 +130,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
             sysUser.setPassword(ENCODER.encode(userDto.getNewPassword()));
         }
         sysUser.setPhone(userDto.getPhone());
-        sysUser.setUserId(userVO.getUserId());
+        sysUser.setUserId(userVo.getUserId());
         sysUser.setAvatar(userDto.getAvatar());
         return this.updateById(sysUser);
     }
