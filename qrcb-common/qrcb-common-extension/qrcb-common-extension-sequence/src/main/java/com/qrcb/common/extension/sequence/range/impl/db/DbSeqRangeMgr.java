@@ -1,5 +1,6 @@
 package com.qrcb.common.extension.sequence.range.impl.db;
 
+import cn.hutool.core.util.StrUtil;
 import com.qrcb.common.extension.sequence.exception.SeqException;
 import com.qrcb.common.extension.sequence.range.SeqRange;
 import com.qrcb.common.extension.sequence.range.SeqRangeMgr;
@@ -33,6 +34,11 @@ public class DbSeqRangeMgr implements SeqRangeMgr {
      * DB来源
      */
     private DataSource dataSource;
+
+    /**
+     * 数据库名，默认qrcb
+     */
+    String dbSchema = "qrcb";
 
     /**
      * 表名，默认range
@@ -78,7 +84,7 @@ public class DbSeqRangeMgr implements SeqRangeMgr {
     }
 
     private String getRealTableName() {
-        return getTableName();
+        return getDbSchema() + StrUtil.DOT + getTableName();
     }
 
     private void checkParam() {
@@ -93,6 +99,9 @@ public class DbSeqRangeMgr implements SeqRangeMgr {
         }
         if (null == dataSource) {
             throw new SecurityException("[DbSeqRangeMgr-setDataSource] dataSource is null.");
+        }
+        if (isEmpty(dbSchema)) {
+            throw new SecurityException("[DbSeqRangeMgr-setDbSchema] dbSchema is empty.");
         }
         if (isEmpty(tableName)) {
             throw new SecurityException("[DbSeqRangeMgr-setTableName] tableName is empty.");
@@ -129,6 +138,14 @@ public class DbSeqRangeMgr implements SeqRangeMgr {
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
+    }
+
+    public String getDbSchema() {
+        return dbSchema;
+    }
+
+    public void setDbSchema(String dbSchema) {
+        this.dbSchema = dbSchema;
     }
 
     public String getTableName() {

@@ -16,10 +16,18 @@ public class BaseDbHelper {
 
     private static final long DELTA = 100000000L;
 
-    private final static String SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS #tableName("
-            + "id bigint(20) NOT NULL AUTO_INCREMENT," + "value bigint(20) NOT NULL," + "name varchar(32) NOT NULL,"
-            + "gmt_create DATETIME NOT NULL," + "gmt_modified DATETIME NOT NULL,"
-            + "PRIMARY KEY (`id`),UNIQUE uk_name (`name`)" + ")";
+    private final static String SQL_CREATE_TABLE = "BEGIN"+
+            "DECLARE CONTINUE HANDLER FOR SQLSTATE '42710' BEGIN END;"+
+            "EXECUTE IMMEDIATE '"+
+            "CREATE TABLE #tableName"
+            +"("
+                + "id bigint NOT NULL GENERATED ALWAYS AS IDENTITY CONSTRAINT #tableName_PK PRIMARY KEY,"
+                + "value bigint NOT NULL,"
+                + "name varchar(32) NOT NULL CONSTRAINT #tableName_UNIQUE_IDX_NAME UNIQUE,"
+                + "gmt_create TIMESTAMP NOT NULL,"
+                + "gmt_modified TIMESTAMP NOT NULL"
+            +")';"
+            +"END;";
 
     private final static String SQL_INSERT_RANGE = "INSERT IGNORE INTO #tableName(name,value,gmt_create,gmt_modified)"
             + " VALUE(?,?,?,?)";
@@ -43,7 +51,7 @@ public class BaseDbHelper {
         try {
             conn = dataSource.getConnection();
             stmt = conn.createStatement();
-            stmt.executeUpdate(SQL_CREATE_TABLE.replace("#tableName", tableName));
+            stmt.executeUpdate(SQL_CREATE_TABLE.replaceAll("#tableName", tableName));
         } catch (SQLException e) {
             throw new SeqException(e);
         } finally {
