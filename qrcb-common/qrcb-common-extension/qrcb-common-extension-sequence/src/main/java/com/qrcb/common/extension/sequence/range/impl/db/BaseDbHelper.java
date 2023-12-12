@@ -29,8 +29,11 @@ public class BaseDbHelper {
             +")';"
             +"END;";
 
-    private final static String SQL_INSERT_RANGE = "INSERT IGNORE INTO #tableName(name,value,gmt_create,gmt_modified)"
-            + " VALUE(?,?,?,?)";
+    private final static String SQL_INSERT_RANGE = "MERGE INTO #tableName AS t1"+
+            "USING (VALUES(?,?,?,?)) AS t2(name,value,gmt_create,gmt_modified)"+
+            "ON t1.name=t2.name"+
+            "WHEN NOT MATCHED THEN INSERT (name,value,gmt_create,gmt_modified)"
+            + " VALUES(t2.name,t2.value,t2.gmt_create,t2.gmt_modified)";
 
     private final static String SQL_UPDATE_RANGE = "UPDATE #tableName SET value=?,gmt_modified=? WHERE name=? AND "
             + "value=?";
