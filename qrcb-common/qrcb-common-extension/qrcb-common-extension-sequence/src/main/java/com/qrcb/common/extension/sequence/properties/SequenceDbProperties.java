@@ -19,6 +19,12 @@ public class SequenceDbProperties extends BaseSequenceProperties {
 
     private static final long serialVersionUID = 1L;
 
+
+    /**
+     * 数据库 Schema
+     */
+    private String dbSchema = "qrcb";
+
     /**
      * 表名称
      */

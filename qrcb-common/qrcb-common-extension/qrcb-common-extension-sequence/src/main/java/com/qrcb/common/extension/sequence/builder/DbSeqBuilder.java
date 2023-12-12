@@ -26,6 +26,11 @@ public class DbSeqBuilder implements SeqBuilder {
     private BizName bizName;
 
     /**
+     * 存放序列号步长的表的存放位置
+     */
+    private String dbSchema="qrcb";
+
+    /**
      * 存放序列号步长的表[可选：默认：sequence]
      */
     private String tableName = "sequence";
@@ -60,6 +65,7 @@ public class DbSeqBuilder implements SeqBuilder {
         // 利用DB获取区间管理器
         DbSeqRangeMgr dbSeqRangeMgr = new DbSeqRangeMgr();
         dbSeqRangeMgr.setDataSource(this.dataSource);
+        dbSeqRangeMgr.setDbSchema(this.dbSchema);
         dbSeqRangeMgr.setTableName(this.tableName);
         dbSeqRangeMgr.setRetryTimes(this.retryTimes);
         dbSeqRangeMgr.setStep(this.step);
@@ -75,6 +81,11 @@ public class DbSeqBuilder implements SeqBuilder {
 
     public DbSeqBuilder dataSource(DataSource dataSource) {
         this.dataSource = dataSource;
+        return this;
+    }
+
+    public DbSeqBuilder dbSchema(String dbSchema) {
+        this.dbSchema = dbSchema;
         return this;
     }
 
