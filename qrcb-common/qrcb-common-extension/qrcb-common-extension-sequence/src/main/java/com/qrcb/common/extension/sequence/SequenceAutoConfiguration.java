@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 public class SequenceAutoConfiguration {
 
     /**
-     * snowflake 算法作为发号器实现
+     * snowflake 算法作为发号器实现，默认format格式：%d
      *
      * @param properties {@link SequenceSnowflakeProperties}
      * @return {@link Sequence}
@@ -29,7 +29,10 @@ public class SequenceAutoConfiguration {
     @Bean
     @ConditionalOnBean(SequenceSnowflakeProperties.class)
     public Sequence snowflakeSequence(SequenceSnowflakeProperties properties) {
-        return SnowflakeSeqBuilder.create().datacenterId(properties.getDataCenterId())
-                .workerId(properties.getWorkerId()).build();
+        return SnowflakeSeqBuilder.create()
+                .datacenterId(properties.getDataCenterId())
+                .workerId(properties.getWorkerId())
+                .format("%d")
+                .build();
     }
 }

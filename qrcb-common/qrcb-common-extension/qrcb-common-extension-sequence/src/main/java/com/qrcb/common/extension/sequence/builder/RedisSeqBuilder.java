@@ -43,6 +43,11 @@ public class RedisSeqBuilder implements SeqBuilder {
      */
     private long stepStart = 0;
 
+    /**
+     * 号码格式，默认：%05d
+     */
+    private String format = "%05d";
+
     public static RedisSeqBuilder create() {
         RedisSeqBuilder builder = new RedisSeqBuilder();
         return builder;
@@ -62,6 +67,7 @@ public class RedisSeqBuilder implements SeqBuilder {
         DefaultRangeSequence sequence = new DefaultRangeSequence();
         sequence.setName(this.bizName);
         sequence.setSeqRangeMgr(redisSeqRangeMgr);
+        sequence.setFormat(this.format);
         return sequence;
     }
 
@@ -95,4 +101,8 @@ public class RedisSeqBuilder implements SeqBuilder {
         return this;
     }
 
+    public RedisSeqBuilder format(String  format) {
+        this.format = format;
+        return this;
+    }
 }

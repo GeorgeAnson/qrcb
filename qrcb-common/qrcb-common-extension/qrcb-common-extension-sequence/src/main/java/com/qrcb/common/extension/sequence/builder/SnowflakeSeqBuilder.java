@@ -21,6 +21,11 @@ public class SnowflakeSeqBuilder implements SeqBuilder {
      */
     private long workerId;
 
+    /**
+     * 号码格式，默认：%d
+     */
+    private String format = "%d";
+
     public static SnowflakeSeqBuilder create() {
         SnowflakeSeqBuilder builder = new SnowflakeSeqBuilder();
         return builder;
@@ -31,6 +36,7 @@ public class SnowflakeSeqBuilder implements SeqBuilder {
         SnowflakeSequence sequence = new SnowflakeSequence();
         sequence.setDatacenterId(this.datacenterId);
         sequence.setWorkerId(this.workerId);
+        sequence.setFormat(this.format);
         return sequence;
     }
 
@@ -44,4 +50,8 @@ public class SnowflakeSeqBuilder implements SeqBuilder {
         return this;
     }
 
+    public SnowflakeSeqBuilder format(String  format) {
+        this.format = format;
+        return this;
+    }
 }

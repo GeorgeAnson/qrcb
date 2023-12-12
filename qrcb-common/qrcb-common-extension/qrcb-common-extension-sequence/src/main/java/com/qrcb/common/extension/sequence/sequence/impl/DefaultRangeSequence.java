@@ -1,14 +1,11 @@
 package com.qrcb.common.extension.sequence.sequence.impl;
 
-import cn.hutool.core.date.DatePattern;
-import cn.hutool.core.date.DateUtil;
 import com.qrcb.common.extension.sequence.exception.SeqException;
 import com.qrcb.common.extension.sequence.range.BizName;
 import com.qrcb.common.extension.sequence.range.SeqRange;
 import com.qrcb.common.extension.sequence.range.SeqRangeMgr;
 import com.qrcb.common.extension.sequence.sequence.RangeSequence;
 
-import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
@@ -44,6 +41,11 @@ public class DefaultRangeSequence  implements RangeSequence {
      * 需要获取区间的业务名称
      */
     private BizName bizName;
+
+    /**
+     * 号码格式
+     */
+    private String format;
 
     @Override
     public long nextValue() throws SeqException {
@@ -101,8 +103,8 @@ public class DefaultRangeSequence  implements RangeSequence {
      * @throws SeqException
      */
     @Override
-    public String nextNo() throws SeqException {
-        return String.format("%s%05d", DateUtil.format(new Date(), DatePattern.PURE_DATE_FORMAT), nextValue());
+    public String nextBizNo() throws SeqException {
+        return String.format(format, nextValue());
     }
 
     @Override
@@ -115,4 +117,8 @@ public class DefaultRangeSequence  implements RangeSequence {
         this.bizName = name;
     }
 
+    @Override
+    public void setFormat(String format) {
+        this.format=format;
+    }
 }
