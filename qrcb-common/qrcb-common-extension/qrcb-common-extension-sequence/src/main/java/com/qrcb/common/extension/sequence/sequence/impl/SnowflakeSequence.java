@@ -87,6 +87,11 @@ public class SnowflakeSequence implements Sequence {
      */
     private long lastTimestamp = -1L;
 
+    /**
+     * 号码格式
+     */
+    private String format;
+
     @Override
     public synchronized long nextValue() throws SeqException {
         long timestamp = timeGen();
@@ -156,6 +161,10 @@ public class SnowflakeSequence implements Sequence {
         this.datacenterId = datacenterId;
     }
 
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
     /**
      * 下一个生成序号（带格式）
      *
@@ -163,8 +172,8 @@ public class SnowflakeSequence implements Sequence {
      * @throws SeqException
      */
     @Override
-    public String nextNo() throws SeqException {
-        return String.valueOf(nextValue());
+    public String nextBizNo() throws SeqException {
+        return String.format(format, nextValue());
     }
 
 }

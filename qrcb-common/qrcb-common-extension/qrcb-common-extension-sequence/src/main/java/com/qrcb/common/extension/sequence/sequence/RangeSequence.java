@@ -25,4 +25,10 @@ public interface RangeSequence extends Sequence {
      */
     void setName(BizName name);
 
+    /**
+     * 设置号码格式
+     *
+     * @param format 号码格式
+     */
+    void setFormat(String format);
 }

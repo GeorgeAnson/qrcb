@@ -24,6 +24,6 @@ public interface Sequence {
      * @return
      * @throws SeqException
      */
-    String nextNo() throws SeqException;
+    String nextBizNo() throws SeqException;
 
 }
