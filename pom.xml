@@ -39,6 +39,8 @@
         <java.version>8</java.version>
         <encoding>UTF-8</encoding>
         <maven.test.skip>true</maven.test.skip>
+        <release.enabled>true</release.enabled>
+        <snapshots.enabled>true</snapshots.enabled>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
@@ -260,6 +262,12 @@
             <id>qrcb-public</id>
             <name>public</name>
             <url>http://qrcb-nexus:8081/repository/qrcb-public/</url>
+            <releases>
+                <enabled>${release.enabled}</enabled>
+            </releases>
+            <snapshots>
+                <enabled>${snapshots.enabled}</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
@@ -268,10 +276,10 @@
             <id>qrcb-plugin</id>
             <url>http://qrcb-nexus:8081/repository/qrcb-public/</url>
             <releases>
-                <enabled>true</enabled>
+                <enabled>${release.enabled}</enabled>
             </releases>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>${snapshots.enabled}</enabled>
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
