@@ -242,23 +242,31 @@
     </build>
 
     <!-- 私服仓储 -->
+    <distributionManagement>
+        <repository>
+            <id>qrcb-releases</id>
+            <name>qrcb-nexus.releases</name>
+            <url>http://qrcb-nexus:8081/repository/qrcb-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>qrcb-snapshots</id>
+            <name>qrcb-nexus.snapshots</name>
+            <url>http://qrcb-nexus:8081/repository/qrcb-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
         <repository>
-            <id>aliyun</id>
-            <name>aliyun</name>
-            <url>https://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-        <repository>
-            <id>central-repos</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
+            <id>qrcb-public</id>
+            <name>public</name>
+            <url>http://qrcb-nexus:8081/repository/qrcb-public/</url>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>aliyun-plugin</id>
-            <url>https://maven.aliyun.com/repository/public</url>
+            <id>qrcb-plugin</id>
+            <url>http://qrcb-nexus:8081/repository/qrcb-public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
