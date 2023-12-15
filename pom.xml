@@ -34,12 +34,12 @@
     </modules>
 
     <properties>
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>1.0.1</revision>
         <java.version>8</java.version>
         <encoding>UTF-8</encoding>
         <maven.test.skip>true</maven.test.skip>
         <release.enabled>true</release.enabled>
-        <snapshots.enabled>true</snapshots.enabled>
+        <snapshots.enabled>false</snapshots.enabled>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
@@ -47,7 +47,7 @@
         <maven.compiler.encoding>${encoding}</maven.compiler.encoding>
 
 
-        <flatten.maven.plugin.version>1.1.0</flatten.maven.plugin.version>
+        <flatten.maven.plugin.version>1.5.0</flatten.maven.plugin.version>
         <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
         <maven.resources.plugin.version>3.3.1</maven.resources.plugin.version>
         <maven.plugin.plugin.version>3.9.0</maven.plugin.plugin.version>
@@ -57,13 +57,6 @@
         <spring.boot.maven.plugin.version>2.4.3</spring.boot.maven.plugin.version>
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
         <docker.maven.plugin.version>0.43.0</docker.maven.plugin.version>
-
-
-        <jasypt.version>3.0.5</jasypt.version>
-        <spring.boot.version>2.6.13</spring.boot.version>
-        <spring.boot.admin.starter.client>2.6.11</spring.boot.admin.starter.client>
-        <spring.cloud.version>2021.0.5</spring.cloud.version>
-        <spring.cloud.alibaba.version>2021.0.5.0</spring.cloud.alibaba.version>
 
 
         <docker.host>192.168.0.1</docker.host>
@@ -129,43 +122,6 @@
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!-- spring boot 公共版本定义 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- spring cloud 公共版本定义 -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- spring cloud alibaba 公共版本定义 -->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring.cloud.alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!--web 模块-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring.boot.version}</version>
-                <exclusions>
-                    <!--排除tomcat依赖-->
-                    <exclusion>
-                        <artifactId>spring-boot-starter-tomcat</artifactId>
-                        <groupId>org.springframework.boot</groupId>
-                    </exclusion>
-                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -386,11 +342,7 @@
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
             </plugin>
-            <!-- javadoc -->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
-<!--            </plugin>-->
+            <!-- javadoc 不引用插件-->
             <!-- 打包关联最新 git commit 信息插件 -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
