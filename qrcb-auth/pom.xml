@@ -5,9 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.qrcb</groupId>
-        <artifactId>qrcb-parent</artifactId>
+        <artifactId>qrcb</artifactId>
         <version>${revision}</version>
-        <relativePath>../qrcb-parent</relativePath>
     </parent>
 
     <artifactId>qrcb-auth</artifactId>
