@@ -15,7 +15,6 @@
     <name>${project.artifactId}</name>
 
     <properties>
-<!--        <revision>1.0.0-SNAPSHOT</revision>-->
         <qrcb.common.version>1.0.0-SNAPSHOT</qrcb.common.version>
         <spring.boot.version>2.6.13</spring.boot.version>
         <spring.boot.admin.starter.client>2.6.11</spring.boot.admin.starter.client>
@@ -30,7 +29,7 @@
         <swagger.core.version>1.5.22</swagger.core.version>
         <spring.security.oauth2.version>2.3.6.RELEASE</spring.security.oauth2.version>
         <swagger.fox.version>3.0.0</swagger.fox.version>
-        <knife4j.version>3.0.3</knife4j.version><!-- TODO:版本从3.0.2升级到3.0.3 -->
+        <knife4j.version>3.0.3</knife4j.version>
         <xxl.job.version>2.3.0</xxl.job.version>
         <aws.s3.version>1.11.543</aws.s3.version>
         <lcn.version>4.1.0</lcn.version>
@@ -197,12 +196,6 @@
                 <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
                 <version>${dynamic.datasource.version}</version>
             </dependency>
-            <!-- druid 连接池 -->
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba</groupId>-->
-<!--                <artifactId>druid-spring-boot-starter</artifactId>-->
-<!--                <version>${druid.version}</version>-->
-<!--            </dependency>-->
             <!-- DB2数据库 -->
             <dependency>
                 <groupId>com.ibm.db2</groupId>

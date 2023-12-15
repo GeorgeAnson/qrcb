@@ -79,11 +79,6 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-<!--        &lt;!&ndash; druid 连接池 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>druid-spring-boot-starter</artifactId>-->
-<!--        </dependency>-->
         <!-- HikariCP 连接池 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
