@@ -26,7 +26,6 @@
 
     <modules>
         <module>qrcb-dependencies</module>
-        <module>qrcb-parent</module>
         <module>qrcb-upms</module>
         <module>qrcb-common</module>
         <module>qrcb-auth</module>
