@@ -11,11 +11,12 @@
     </parent>
 
     <artifactId>qrcb-dependencies</artifactId>
+    <version>${revision}</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
 
     <properties>
-        <qrcb.common.version>1.0.0-SNAPSHOT</qrcb.common.version>
+        <revision>1.0.1</revision>
         <spring.boot.version>2.6.13</spring.boot.version>
         <spring.boot.admin.starter.client>2.6.11</spring.boot.admin.starter.client>
         <spring.cloud.version>2021.0.5</spring.cloud.version>
@@ -41,107 +42,131 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- spring boot 公共版本定义 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud 公共版本定义 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud alibaba 公共版本定义 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- qrcb-common-core-assemble -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-assemble</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-data -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-data</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-datasource -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-datasource</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-feign -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-feign</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-gateway -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-gateway</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-gray -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-gray</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-log -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-log</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-security -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-security</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-sentinel -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-sentinel</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-core-swagger -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-core-swagger</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-upms-api -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-upms-api</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-extension-job -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-extension-job</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-extension-nacos -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-extension-nacos</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-extension-oss -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-extension-oss</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-extension-sequence -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-extension-sequence</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-extension-transaction -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-extension-transaction</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
             <!-- qrcb-common-extension-xss -->
             <dependency>
                 <groupId>com.qrcb</groupId>
                 <artifactId>qrcb-common-extension-xss</artifactId>
-                <version>${qrcb.common.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <!-- Hutool -->
@@ -178,6 +203,19 @@
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${spring.boot.admin.starter.client}</version>
+            </dependency>
+            <!--web 模块-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+                <exclusions>
+                    <!--排除tomcat依赖-->
+                    <exclusion>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                        <groupId>org.springframework.boot</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <!--TTL-->
             <dependency>
