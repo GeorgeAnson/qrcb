@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties("spring.datasource.hikari")
+@ConfigurationProperties("spring.datasource")
 public class HikariDataSourceProperties {
 
     /**
@@ -26,19 +26,15 @@ public class HikariDataSourceProperties {
     private String password;
 
     /**
-     * jdbc url
+     * url
      */
-    private String jdbcUrl;
+    private String url;
 
     /**
      * 数据源驱动
      */
     private String driverClassName;
 
-    /**
-     * 数据源 Schema
-     */
-    private String schema;
 
     /**
      * 查询数据源的SQL
