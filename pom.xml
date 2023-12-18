@@ -151,7 +151,7 @@
     </profiles>
 
     <build>
-        <finalName>${project.name}-${revision}</finalName>
+        <finalName>${project.name}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
