@@ -5,14 +5,14 @@ server:
 
 db:
   num: 1
-  url.0: jdbc:db2://${DB2_HOST:qrcb-db2}:${DB2_PORT:50000}/EDW
+  url.0: jdbc:db2://${DB2_HOST:qrcb-db2}:${DB2_PORT:50000}/EDW:currentSchema=${DB2_SCHEMA:QRCB_CONFIG};
   user: ${DB2_USER:db2admin}
   password: ${DB2_PWD:db2admin}
   pool:
     config:
       driver-class-name: com.ibm.db2.jcc.DB2Driver
       connection-test-query: select 1 FROM SYSIBM.SYSDUMMY1
-      schema: QRCB_CONFIG
+#      schema: ${DB2_SCHEMA:QRCB_CONFIG}
 
 
 nacos:
