@@ -39,6 +39,12 @@ public class QrcbUser extends User {
     private String phone;
 
     /**
+     * 姓名
+     */
+    @Getter
+    private String realName;
+
+    /**
      * 头像
      */
     @Getter
@@ -74,7 +80,8 @@ public class QrcbUser extends User {
     public QrcbUser(@JsonProperty("id") Integer id, @JsonProperty("deptId") Integer deptId,
                     @JsonProperty("phone") String phone, @JsonProperty("avatar") String avatar,
                     @JsonProperty("tenantId") Integer tenantId, @JsonProperty("username") String username,
-                    @JsonProperty("password") String password, @JsonProperty("enabled") boolean enabled,
+                    @JsonProperty("password") String password, @JsonProperty("realName") String realName,
+                    @JsonProperty("enabled") boolean enabled,
                     @JsonProperty("accountNonExpired") boolean accountNonExpired,
                     @JsonProperty("credentialsNonExpired") boolean credentialsNonExpired,
                     @JsonProperty("accountNonLocked") boolean accountNonLocked,
@@ -83,6 +90,7 @@ public class QrcbUser extends User {
         this.id = id;
         this.deptId = deptId;
         this.phone = phone;
+        this.realName=realName;
         this.avatar = avatar;
         this.tenantId = tenantId;
     }

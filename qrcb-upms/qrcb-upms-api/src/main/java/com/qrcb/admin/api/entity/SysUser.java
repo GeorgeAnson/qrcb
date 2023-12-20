@@ -43,6 +43,12 @@ public class SysUser implements Serializable {
     private String password;
 
     /**
+     * 姓名
+     */
+    @ApiModelProperty(value = "姓名")
+    private String realName;
+
+    /**
      * 随机盐
      */
     @JsonIgnore
