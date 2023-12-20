@@ -93,7 +93,8 @@ public class QrcbUserDetailsServiceImpl implements QrcbUserDetailsService{
         // 构造security用户
 
         return new QrcbUser(user.getUserId(), user.getDeptId(), user.getPhone(), user.getAvatar(), user.getTenantId(),
-                user.getUsername(), SecurityConstants.BCRYPT + user.getPassword(), enabled, true, true,
+                user.getUsername(), SecurityConstants.BCRYPT + user.getPassword(), user.getRealName(),
+                enabled, true, true,
                 !CommonConstants.STATUS_LOCK.equals(user.getLockFlag()), authorities);
     }
 

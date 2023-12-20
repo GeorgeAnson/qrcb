@@ -68,7 +68,8 @@ public class QrcbUserAuthenticationConverter  implements UserAuthenticationConve
             Integer tenantId = MapUtil.getInt(map, SecurityConstants.DETAILS_TENANT_ID);
             String phone = MapUtil.getStr(map, SecurityConstants.DETAILS_PHONE);
             String avatar = MapUtil.getStr(map, SecurityConstants.DETAILS_AVATAR);
-            QrcbUser user = new QrcbUser(id, deptId, phone, avatar, tenantId, username, N_A, true, true, true, true,
+            String realName = MapUtil.getStr(map, SecurityConstants.DETAILS_REAL_NAME);
+            QrcbUser user = new QrcbUser(id, deptId, phone, avatar, tenantId, username, N_A, realName,true, true, true, true,
                     authorities);
             return new UsernamePasswordAuthenticationToken(user, N_A, authorities);
         }

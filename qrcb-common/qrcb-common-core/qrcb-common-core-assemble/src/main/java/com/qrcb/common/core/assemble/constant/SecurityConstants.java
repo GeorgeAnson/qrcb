@@ -111,6 +111,11 @@ public interface SecurityConstants {
     String DETAILS_PHONE = "phone";
 
     /**
+     * 姓名
+     */
+    String DETAILS_REAL_NAME = "realName";
+
+    /**
      * 头像
      */
     String DETAILS_AVATAR = "avatar";

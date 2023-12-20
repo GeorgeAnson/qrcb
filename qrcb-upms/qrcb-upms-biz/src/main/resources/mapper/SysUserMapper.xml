@@ -6,6 +6,7 @@
 		<id column="user_id" property="userId"/>
 		<result column="username" property="username"/>
 		<result column="password" property="password"/>
+		<result column="real_name" property="realName"/>
 		<result column="salt" property="salt"/>
 		<result column="phone" property="phone"/>
 		<result column="avatar" property="avatar"/>
@@ -28,6 +29,7 @@
 		<id column="user_id" property="userId"/>
 		<result column="username" property="username"/>
 		<result column="password" property="password"/>
+		<result column="real_name" property="realName"/>
 		<result column="salt" property="salt"/>
 		<result column="phone" property="phone"/>
 		<result column="avatar" property="avatar"/>
@@ -54,6 +56,7 @@
 		u.user_id,
 		u.username,
 		u.password,
+		u.real_name,
 		u.salt,
 		u.phone,
 		u.avatar,
@@ -77,6 +80,7 @@
 		u.user_id,
 		u.username,
 		u.password,
+		u.real_name,
 		u.salt,
 		u.phone,
 		u.avatar,
@@ -124,6 +128,7 @@
         u.user_id,
         u.username,
         u.password,
+		u.real_name,
         u.salt,
         u.phone,
         u.avatar,
