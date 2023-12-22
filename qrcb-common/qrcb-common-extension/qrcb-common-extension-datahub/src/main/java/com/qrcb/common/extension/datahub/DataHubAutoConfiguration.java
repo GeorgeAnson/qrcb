@@ -5,6 +5,7 @@ import com.aliyun.datahub.client.DatahubClientBuilder;
 import com.aliyun.datahub.client.auth.AliyunAccount;
 import com.aliyun.datahub.client.common.DatahubConfig;
 import com.aliyun.datahub.client.http.HttpConfig;
+import com.aliyun.datahub.clientlibrary.config.ProducerConfig;
 import com.aliyun.datahub.clientlibrary.consumer.Consumer;
 import com.qrcb.common.extension.datahub.annotation.DataHubListenerAnnotationProcessor;
 import com.qrcb.common.extension.datahub.config.ConcurrentMessageListenerContainerFactory;
@@ -57,6 +58,12 @@ public class DataHubAutoConfiguration {
                 .setConnTimeout( 10000 )
                 .setCompressType( HttpConfig.CompressType.LZ4 )
         ).build();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public ProducerConfig producerConfig(DataHubProperties dataHubProperties) {
+        return new ProducerConfig( dataHubProperties.getEndpoint(), dataHubProperties.getAccessId(), dataHubProperties.getAccessKey() );
     }
 
 }
