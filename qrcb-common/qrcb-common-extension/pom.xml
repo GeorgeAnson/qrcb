@@ -14,6 +14,7 @@
     <name>${project.artifactId}</name>
 
     <modules>
+        <module>qrcb-common-extension-datahub</module>
         <module>qrcb-common-extension-job</module>
         <module>qrcb-common-extension-nacos</module>
         <module>qrcb-common-extension-oss</module>
