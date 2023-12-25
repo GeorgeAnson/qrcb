@@ -43,7 +43,7 @@ public interface QrcbBaseMapper<T> extends BaseMapper<T> {
      * @param scope        数据权限范围
      * @return Integer
      */
-    Integer selectCountByScope(@Param(Constants.WRAPPER) Wrapper<T> queryWrapper, DataScope scope);
+    Long selectCountByScope(@Param(Constants.WRAPPER) Wrapper<T> queryWrapper, DataScope scope);
 
     /**
      * 批量插入 仅适用于 mysql
