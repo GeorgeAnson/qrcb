@@ -14,13 +14,27 @@ import org.apache.ibatis.mapping.SqlSource;
 
 public class SelectPageByScope extends AbstractMethod {
 
+    private static final long serialVersionUID = 5800618267070549024L;
+
+    public SelectPageByScope(){
+        this("selectPageByScope");
+    }
+
+    /**
+     * @param methodName 方法名
+     * @since 3.5.0
+     */
+    public SelectPageByScope(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         SqlMethod sqlMethod = SqlMethod.SELECT_PAGE;
         String sql = String.format(sqlMethod.getSql(), sqlFirst(), sqlSelectColumns(tableInfo, true),
-                tableInfo.getTableName(), sqlWhereEntityWrapper(true, tableInfo), sqlComment());
+                tableInfo.getTableName(), sqlWhereEntityWrapper(true, tableInfo), sqlOrderBy(tableInfo), sqlComment());
         SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
-        return this.addSelectMappedStatementForTable(mapperClass, "selectPageByScope", sqlSource, tableInfo);
+        return this.addSelectMappedStatementForTable(mapperClass, methodName, sqlSource, tableInfo);
     }
 
 }

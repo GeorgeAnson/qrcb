@@ -68,7 +68,7 @@ public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> impleme
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Boolean saveLog(SysLogDto sysLogDto) {
-        return SqlHelper.retBool(TenantBroker.applyAs(sysLogDto::getTenantId, tenantId -> {
+        return SqlHelper.retBool((Integer) TenantBroker.applyAs(sysLogDto::getTenantId, tenantId -> {
             TenantContextHolder.setTenantId(tenantId);
             SysLog log = new SysLog();
             BeanUtils.copyProperties(sysLogDto, log);

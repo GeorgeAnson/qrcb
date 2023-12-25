@@ -14,13 +14,27 @@ import org.apache.ibatis.mapping.SqlSource;
 
 public class SelectListByScope extends AbstractMethod {
 
+    private static final long serialVersionUID = -4299826997072160427L;
+
+    public SelectListByScope() {
+        this("selectListByScope");
+    }
+
+    /**
+     * @param methodName 方法名
+     * @since 3.5.0
+     */
+    public SelectListByScope(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         SqlMethod sqlMethod = SqlMethod.SELECT_LIST;
-        String sql = String.format(sqlMethod.getSql(), sqlFirst(), sqlSelectColumns(tableInfo, true),
-                tableInfo.getTableName(), sqlWhereEntityWrapper(true, tableInfo), sqlComment());
+        String sql = String.format(sqlMethod.getSql(), sqlFirst(), sqlSelectColumns(tableInfo, true), tableInfo.getTableName(),
+                sqlWhereEntityWrapper(true, tableInfo), sqlOrderBy(tableInfo), sqlComment());
         SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
-        return this.addSelectMappedStatementForTable(mapperClass, "selectListByScope", sqlSource, tableInfo);
+        return this.addSelectMappedStatementForTable(mapperClass, methodName, sqlSource, tableInfo);
     }
 
 }

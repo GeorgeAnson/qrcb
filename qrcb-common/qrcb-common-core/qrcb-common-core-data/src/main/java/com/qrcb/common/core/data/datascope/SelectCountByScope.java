@@ -14,15 +14,29 @@ import org.apache.ibatis.mapping.SqlSource;
 
 public class SelectCountByScope extends AbstractMethod {
 
+    private static final long serialVersionUID = -1081226594595231062L;
+
+    public SelectCountByScope() {
+        this("selectCountByScope");
+    }
+
+    /**
+     * @param methodName 方法名
+     * @since 3.5.0
+     */
+    public SelectCountByScope(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
-        SqlMethod sqlMethod = SqlMethod.SELECT_LIST;
+        SqlMethod sqlMethod = SqlMethod.SELECT_COUNT;
 
-        String sql = String.format(sqlMethod.getSql(), sqlFirst(), sqlSelectColumns(tableInfo, true),
-                tableInfo.getTableName(), sqlWhereEntityWrapper(true, tableInfo), sqlComment());
+        String sql = String.format(sqlMethod.getSql(), sqlFirst(), sqlCount(), tableInfo.getTableName(),
+                sqlWhereEntityWrapper(true, tableInfo), sqlComment());
         SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
 
-        return this.addSelectMappedStatementForOther(mapperClass, "selectCountByScope", sqlSource, Integer.class);
+        return this.addSelectMappedStatementForOther(mapperClass, methodName, sqlSource, Long.class);
     }
 
 }
