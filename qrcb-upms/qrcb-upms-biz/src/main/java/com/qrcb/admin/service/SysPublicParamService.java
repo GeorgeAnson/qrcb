@@ -20,6 +20,13 @@ public interface SysPublicParamService extends IService<SysPublicParam> {
     String getSysPublicParamKeyToValue(String publicKey);
 
     /**
+     * 保存参数
+     * @param sysPublicParam 参数
+     * @return {@link Boolean}
+     */
+    Boolean saveParam(SysPublicParam sysPublicParam);
+
+    /**
      * 更新参数
      *
      * @param sysPublicParam 参数

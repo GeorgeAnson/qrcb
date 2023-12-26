@@ -77,7 +77,7 @@ public class SysPublicParamController {
     @PostMapping
     @PreAuthorize("@pms.hasPermission('admin_syspublicparam_add')")
     public R<Boolean> save(@RequestBody SysPublicParam sysPublicParam) {
-        return R.ok(sysPublicParamService.save(sysPublicParam));
+        return R.ok(sysPublicParamService.saveParam(sysPublicParam));
     }
 
     /**
