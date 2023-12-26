@@ -63,12 +63,6 @@ public class SysPublicParam extends Model<SysPublicParam> {
     private String delFlag;
 
     /**
-     * 公共参数编码
-     */
-    @ApiModelProperty(value = "编码", example = "^(QRCB|QRCB)$")
-    private String validateCode;
-
-    /**
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间", example = "2019-03-21 12:28:48")
