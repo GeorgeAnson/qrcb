@@ -47,10 +47,11 @@ public interface QrcbBaseMapper<T> extends BaseMapper<T> {
 
     /**
      * 批量插入 仅适用于 mysql
-     *
+     * 考虑方法适用范围有限，不建议使用
      * @param entityList 实体列表
      * @return 影响行数
      */
+    @Deprecated
     Integer insertBatchSomeColumn(List<T> entityList);
 
 }
