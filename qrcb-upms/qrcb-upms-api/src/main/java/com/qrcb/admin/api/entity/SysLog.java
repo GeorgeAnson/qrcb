@@ -3,12 +3,13 @@ package com.qrcb.admin.api.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -19,7 +20,8 @@ import java.time.LocalDateTime;
 
 @Data
 @ApiModel(value = "日志")
-public class SysLog implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+public class SysLog extends Model<SysLog> {
 
     private static final long serialVersionUID = 1L;
 
