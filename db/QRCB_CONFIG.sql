@@ -59,7 +59,7 @@ create table QRCB_CONFIG.CONFIG_INFO_AGGR
         unique (DATA_ID, GROUP_ID, TENANT_ID, DATUM_ID)
 );
 
-comment on table QRCB_CONFIG.CONFIG_INFO_AGGR is '增加租户字段';
+comment on table QRCB_CONFIG.CONFIG_INFO_AGGR is 'config_info_aggr';
 
 comment on column QRCB_CONFIG.CONFIG_INFO_AGGR.ID is 'id';
 
@@ -241,7 +241,7 @@ create table QRCB_CONFIG.HIS_CONFIG_INFO
     ENCRYPTED_DATA_KEY CLOB default ''                not null
 );
 
-comment on table QRCB_CONFIG.HIS_CONFIG_INFO is 'config_info';
+comment on table QRCB_CONFIG.HIS_CONFIG_INFO is 'his_config_info';
 
 comment on column QRCB_CONFIG.HIS_CONFIG_INFO.ID is 'id';
 
@@ -338,6 +338,8 @@ create table QRCB_CONFIG.TENANT_INFO
         unique (KP, TENANT_ID)
 );
 
+comment on table QRCN_CONFIG.TENANT_INFO is '租户信息表';
+
 comment on column QRCB_CONFIG.TENANT_INFO.ID is 'id';
 
 comment on column QRCB_CONFIG.TENANT_INFO.KP is 'kp';
@@ -362,6 +364,8 @@ create table QRCB_CONFIG.USERS
     PASSWORD VARCHAR(500) not null,
     ENABLED  SMALLINT     not null
 );
+
+comment on table QRCB_CONFIG.USERS is '用户表';
 
 comment on column QRCB_CONFIG.USERS.USERNAME is 'username';
 
