@@ -99,7 +99,7 @@ public class QrcbTokenDealServiceImpl {
      * 分页查询token 列表
      *
      * @param page page
-     * @return
+     * @return {@link Page} R
      */
     public R<Page> queryToken(Page page) {
         // 根据分页参数获取对应数据

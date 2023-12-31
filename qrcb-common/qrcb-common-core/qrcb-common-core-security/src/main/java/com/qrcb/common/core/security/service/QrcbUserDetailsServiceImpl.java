@@ -70,7 +70,7 @@ public class QrcbUserDetailsServiceImpl implements QrcbUserDetailsService{
     /**
      * 构建userdetails
      * @param result 用户信息
-     * @return
+     * @return {@link UserDetails}
      */
     private UserDetails getUserDetails(R<UserInfo> result) {
         if (result == null || result.getData() == null) {

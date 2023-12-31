@@ -214,7 +214,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     /**
      * 从请求头中解析 client id
      * @param header
-     * @return
+     * @return {@link Optional} String
      */
     public Optional<String> extractClientId(String header) {
         return Optional.ofNullable(extractClientId(header, null));
@@ -222,7 +222,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 从request 获取CLIENT_ID
-     * @return
+     * @return String
      */
     public String getClientId(String header) {
         String clientId = extractClientId(header, null);

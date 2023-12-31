@@ -16,7 +16,7 @@ public interface SysDictService extends IService<SysDict> {
      * 根据ID 删除字典
      *
      * @param id
-     * @return
+     * @return Boolean
      */
     R<Boolean> removeDict(Integer id);
 
@@ -24,7 +24,7 @@ public interface SysDictService extends IService<SysDict> {
      * 更新字典
      *
      * @param sysDict 字典
-     * @return
+     * @return Boolean
      */
     R<Boolean> updateDict(SysDict sysDict);
 

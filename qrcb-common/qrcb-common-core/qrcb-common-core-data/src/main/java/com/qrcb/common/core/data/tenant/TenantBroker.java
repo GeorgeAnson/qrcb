@@ -62,7 +62,7 @@ public class TenantBroker {
          * 执行业务逻辑,返回一个值
          *
          * @param tenantId
-         * @return
+         * @return R
          * @throws Exception
          */
         R apply(T tenantId) throws Exception;
@@ -95,7 +95,7 @@ public class TenantBroker {
      * @param tenant 租户ID
      * @param func
      * @param <T>    返回数据类型
-     * @return
+     * @return T
      */
     public <T> T applyAs(Integer tenant, ApplyAs<Integer, T> func) {
         final Integer pre = TenantContextHolder.getTenantId();
@@ -127,7 +127,7 @@ public class TenantBroker {
      * @param supplier
      * @param func
      * @param <T>      返回数据类型
-     * @return
+     * @return T
      */
     public <T> T applyAs(Supplier<Integer> supplier, ApplyAs<Integer, T> func) {
         return applyAs(supplier.get(), func);

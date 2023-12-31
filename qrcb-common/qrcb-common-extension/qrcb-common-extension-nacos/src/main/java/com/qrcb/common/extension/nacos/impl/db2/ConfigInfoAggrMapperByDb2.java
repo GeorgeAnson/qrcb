@@ -19,7 +19,7 @@ public class ConfigInfoAggrMapperByDb2 extends AbstractMapper implements ConfigI
      * 批量删除
      *
      * @param datumList
-     * @return
+     * @return String
      */
     @Override
     public String batchRemoveAggr(List<String> datumList) {

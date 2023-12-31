@@ -168,7 +168,7 @@ public class SnowflakeSequence implements Sequence {
     /**
      * 下一个生成序号（带格式）
      *
-     * @return
+     * @return String
      * @throws SeqException
      */
     @Override

@@ -91,7 +91,7 @@ public class MybatisPlusConfiguration implements WebMvcConfigurer {
     /**
      * 扩展 mybatis-plus baseMapper 支持数据权限
      *
-     * @return
+     * @return {@link DataScopeSqlInjector}
      */
     @Bean
     @ConditionalOnBean(DataScopeHandler.class)

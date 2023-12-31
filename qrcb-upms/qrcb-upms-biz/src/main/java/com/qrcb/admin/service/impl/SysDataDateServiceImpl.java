@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 /**
  * 系统数据日期
  *
- * @author Anson
- * @date 2023-12-26 09:32:06
+ * @Author Anson
+ * @Create 2023-12-26 09:32:06
  */
 @Service
 public class SysDataDateServiceImpl extends ServiceImpl<SysDataDateMapper, SysDataDate> implements SysDataDateService {

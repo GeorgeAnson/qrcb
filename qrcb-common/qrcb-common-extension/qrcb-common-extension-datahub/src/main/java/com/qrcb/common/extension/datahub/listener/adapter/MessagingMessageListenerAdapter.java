@@ -140,7 +140,6 @@ public abstract class MessagingMessageListenerAdapter implements ConsumerSeekAwa
      *
      * @param message the message to process.
      *
-     * @return the result of invocation.
      */
     protected final void invokeHandler(Message<?> message,RecordEntry recordEntry) {
 
