@@ -56,7 +56,7 @@ public class RedisAutoCacheManager extends RedisCacheManager {
      * 从上下文中获取租户ID，重写@Cacheable value 值
      *
      * @param name
-     * @return
+     * @return {@link Cache}
      */
     @Override
     public Cache getCache(String name) {

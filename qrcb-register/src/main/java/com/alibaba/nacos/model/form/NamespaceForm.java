@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * NamespaceForm.
  * @author dongyafei
- * @date 2022/8/16
+ * @Create 2022/8/16
  */
 public class NamespaceForm implements Serializable {
     

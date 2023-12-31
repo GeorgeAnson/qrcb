@@ -19,7 +19,7 @@ public class ConfigInfoAggrMapperByPostgresql extends AbstractMapper implements 
      * 批量删除
      *
      * @param datumList
-     * @return
+     * @return String
      */
     @Override
     public String batchRemoveAggr(List<String> datumList) {

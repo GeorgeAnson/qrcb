@@ -142,7 +142,7 @@ public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
     /**
      * 原文解密
      *
-     * @return
+     * @return {@link Function}
      */
     private Function decryptAES() {
         return s -> {
@@ -169,7 +169,7 @@ public class PasswordDecoderFilter extends AbstractGatewayFilterFactory {
     /**
      * 报文转换
      *
-     * @return
+     * @return {@link ServerHttpRequestDecorator}
      */
     private ServerHttpRequestDecorator decorate(ServerWebExchange exchange, HttpHeaders headers,
                                                 CachedBodyOutputMessage outputMessage) {

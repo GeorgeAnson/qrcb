@@ -16,7 +16,7 @@ public class TenantKeyStrResolver implements KeyStrResolver {
      *
      * @param in    输入字符串
      * @param split 分割符
-     * @return
+     * @return String
      */
     @Override
     public String extract(String in, String split) {
@@ -26,7 +26,7 @@ public class TenantKeyStrResolver implements KeyStrResolver {
     /**
      * 返回当前租户ID
      *
-     * @return
+     * @return String
      */
     @Override
     public String key() {

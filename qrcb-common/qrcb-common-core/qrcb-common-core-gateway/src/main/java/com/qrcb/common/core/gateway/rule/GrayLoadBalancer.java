@@ -16,7 +16,7 @@ public interface GrayLoadBalancer {
      *
      * @param serviceId 服务ID
      * @param request   当前请求
-     * @return
+     * @return {@link ServiceInstance}
      */
     ServiceInstance choose(String serviceId, ServerHttpRequest request);
 

@@ -23,7 +23,6 @@ public interface RemoteTokenService {
      *
      * @param from   内部调用标志
      * @param params 分页参数
-     * @param from   内部调用标志
      * @return R {@link Page}
      */
     @PostMapping("/token/page")
@@ -34,7 +33,6 @@ public interface RemoteTokenService {
      *
      * @param from  内部调用标志
      * @param token token
-     * @param from  内部调用标志
      * @return R {@link Boolean}
      */
     @DeleteMapping("/token/{token}")

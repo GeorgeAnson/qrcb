@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * 系统数据日期
  *
  * @author Anson
- * @date 2023-12-26 09:32:06
+ * @Create 2023-12-26 09:32:06
  */
 @RestController
 @AllArgsConstructor

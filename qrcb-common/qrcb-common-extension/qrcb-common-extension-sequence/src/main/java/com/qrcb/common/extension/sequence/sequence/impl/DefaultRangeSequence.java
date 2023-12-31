@@ -99,7 +99,7 @@ public class DefaultRangeSequence  implements RangeSequence {
 
     /**
      * 下一个生成序号（带格式）
-     * @return
+     * @return String
      * @throws SeqException
      */
     @Override

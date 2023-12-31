@@ -21,7 +21,7 @@ package com.alibaba.nacos.enums;
  * 0 : Global configuration， 1 : Default private namespace ，2 : Custom namespace.
  *
  * @author chenglu
- * @date 2021-05-25 17:01
+ * @Create 2021-05-25 17:01
  */
 public enum NamespaceTypeEnum {
     

@@ -93,7 +93,7 @@ public class SwaggerAutoConfiguration {
     /**
      * 配置默认的全局鉴权策略的开关，通过正则表达式进行匹配；默认匹配所有URL
      *
-     * @return
+     * @return {@link SecurityContext}
      */
     private SecurityContext securityContext() {
         return SecurityContext.builder().securityReferences(defaultAuth()).build();
@@ -102,7 +102,7 @@ public class SwaggerAutoConfiguration {
     /**
      * 默认的全局鉴权策略
      *
-     * @return
+     * @return {@link SecurityReference} List
      */
     private List<SecurityReference> defaultAuth() {
         ArrayList<AuthorizationScope> authorizationScopeList = new ArrayList<>();

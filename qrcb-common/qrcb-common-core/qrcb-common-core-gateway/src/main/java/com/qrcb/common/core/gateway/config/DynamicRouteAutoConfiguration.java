@@ -35,7 +35,7 @@ public class DynamicRouteAutoConfiguration {
     /**
      * 配置文件设置为空 redis 加载为准
      *
-     * @return
+     * @return {@link PropertiesRouteDefinitionLocator}
      */
     @Bean
     public PropertiesRouteDefinitionLocator propertiesRouteDefinitionLocator() {
@@ -46,7 +46,7 @@ public class DynamicRouteAutoConfiguration {
      * redis 监听配置
      *
      * @param redisConnectionFactory redis 配置
-     * @return
+     * @return {@link RedisMessageListenerContainer}
      */
     @Bean
     public RedisMessageListenerContainer redisContainer(RedisConnectionFactory redisConnectionFactory) {
@@ -65,7 +65,7 @@ public class DynamicRouteAutoConfiguration {
      * 动态路由监控检查
      *
      * @param redisTemplate redis
-     * @return
+     * @return {@link DynamicRouteHealthIndicator}
      */
     @Bean
     public DynamicRouteHealthIndicator healthIndicator(RedisTemplate redisTemplate) {

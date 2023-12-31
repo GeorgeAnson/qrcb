@@ -156,7 +156,6 @@ public class DelegatingInvocableHandler {
      * @param message the message.
      * @param providedArgs additional arguments.
      *
-     * @return the result of the invocation.
      *
      * @throws Exception raised if no suitable argument resolver can be found,
      * or the method raised an exception.

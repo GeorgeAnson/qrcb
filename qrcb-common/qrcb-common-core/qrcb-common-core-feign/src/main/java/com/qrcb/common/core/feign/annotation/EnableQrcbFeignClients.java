@@ -64,7 +64,7 @@ public @interface EnableQrcbFeignClients {
     /**
      * List of classes annotated with @FeignClient. If not empty, disables classpath
      * scanning.
-     * @return
+     * @return {@link Class}
      */
     Class<?>[] clients() default {};
 

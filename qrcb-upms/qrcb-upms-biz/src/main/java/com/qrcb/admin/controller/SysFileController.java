@@ -76,7 +76,6 @@ public class SysFileController {
      * @param bucket   桶名称
      * @param fileName 文件空间/名称
      * @param response {@link HttpServletResponse}
-     * @return void
      */
     @Inner(false)
     @GetMapping("/{bucket}/{fileName}")

@@ -27,7 +27,7 @@ public class TenantContextHolder {
 
     /**
      * 获取TTL中的租户ID
-     * @return
+     * @return Integer
      */
     public Integer getTenantId() {
         return THREAD_LOCAL_TENANT.get();
