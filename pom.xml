@@ -362,10 +362,6 @@
                 <artifactId>docker-maven-plugin</artifactId>
             </plugin>
             <!-- javadoc 插件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-            </plugin>
             <!-- 打包关联最新 git commit 信息插件 -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
