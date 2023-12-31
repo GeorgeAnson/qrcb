@@ -51,7 +51,7 @@
         <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
         <maven.resources.plugin.version>3.3.1</maven.resources.plugin.version>
         <maven.plugin.plugin.version>3.9.0</maven.plugin.plugin.version>
-        <maven.javadoc.plugin.version>3.5.0</maven.javadoc.plugin.version>
+        <maven.javadoc.plugin.version>3.6.3</maven.javadoc.plugin.version>
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
         <spring.javaformat.maven.plugin.version>0.0.39</spring.javaformat.maven.plugin.version>
         <spring.boot.maven.plugin.version>2.4.3</spring.boot.maven.plugin.version>
@@ -281,14 +281,33 @@
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven.javadoc.plugin.version}</version>
                     <configuration>
-                        <show>private</show>
-                        <nohelp>true</nohelp>
+                        <quiet>true</quiet>
+                        <doclint>none</doclint>
                         <charset>${encoding}</charset>
                         <encoding>${encoding}</encoding>
                         <docencoding>${encoding}</docencoding>
+                        <failOnError>false</failOnError>
+                        <tags>
+                            <tag>
+                                <name>Author</name>
+                                <placement>a</placement>
+                                <head>Author of the Class</head>
+                            </tag>
+                            <tag>
+                                <name>Create</name>
+                                <placement>a</placement>
+                                <head>Create Time of Class</head>
+                            </tag>
+                            <tag>
+                                <name>Description</name>
+                                <placement>a</placement>
+                                <head>Description of Class</head>
+                            </tag>
+                        </tags>
                     </configuration>
                     <executions>
                         <execution>
+                            <id>javadocs</id>
                             <phase>package</phase>
                             <goals>
                                 <goal>jar</goal>
@@ -342,7 +361,11 @@
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
             </plugin>
-            <!-- javadoc 不引用插件-->
+            <!-- javadoc 插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
             <!-- 打包关联最新 git commit 信息插件 -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
