@@ -40,6 +40,7 @@
         <nacos.version>2.2.0</nacos.version>
         <datahub.version>2.19.0-public</datahub.version>
         <datahub.client.version>1.1.12-public</datahub.client.version>
+        <jsr305.version>3.0.2</jsr305.version>
     </properties>
 
     <dependencyManagement>
@@ -391,6 +392,11 @@
                 <groupId>com.aliyun.datahub</groupId>
                 <artifactId>datahub-client-library</artifactId>
                 <version>${datahub.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
