@@ -54,6 +54,9 @@ comment on column QRCB_CODEGEN.GEN_DATASOURCE_CONF.PORT is '端口';
 
 comment on column QRCB_CODEGEN.GEN_DATASOURCE_CONF.HOST is '主机';
 
+--考虑动态多数据源name的唯一性
+create unique index GEN_DATASOURCE_CONF_IDX_NAME
+on QRCB_CODEGEN.GEN_DATASOURCE_CONF(name);
 
 create table QRCB_CODEGEN.GEN_FORM_CONF
 (
