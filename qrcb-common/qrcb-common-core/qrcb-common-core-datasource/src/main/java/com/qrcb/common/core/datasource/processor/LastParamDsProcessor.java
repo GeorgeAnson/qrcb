@@ -1,7 +1,7 @@
-package com.qrcb.common.core.datasource.config;
+package com.qrcb.common.core.datasource.processor;
 
+import cn.hutool.core.util.ObjUtil;
 import com.baomidou.dynamic.datasource.processor.DsProcessor;
-import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import org.aopalliance.intercept.MethodInvocation;
 
 /**
@@ -22,12 +22,7 @@ public class LastParamDsProcessor extends DsProcessor {
      */
     @Override
     public boolean matches(String key) {
-        if (key.startsWith(LAST_PREFIX)) {
-            // https://github.com/baomidou/dynamic-datasource-spring-boot-starter/issues/213
-            DynamicDataSourceContextHolder.clear();
-            return true;
-        }
-        return false;
+        return key.startsWith(LAST_PREFIX);
     }
 
     /**
@@ -40,7 +35,9 @@ public class LastParamDsProcessor extends DsProcessor {
     @Override
     public String doDetermineDatasource(MethodInvocation invocation, String key) {
         Object[] arguments = invocation.getArguments();
-        return String.valueOf(arguments[arguments.length - 1]);
+        //取最后一个参数值
+        Object dsName = arguments[arguments.length - 1];
+        return ObjUtil.isNull(dsName)?null:String.valueOf(dsName);
     }
 
 }

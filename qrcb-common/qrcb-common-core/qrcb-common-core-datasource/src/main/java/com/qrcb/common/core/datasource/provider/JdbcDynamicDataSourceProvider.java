@@ -1,10 +1,12 @@
-package com.qrcb.common.core.datasource.config;
+package com.qrcb.common.core.datasource.provider;
 
 import com.baomidou.dynamic.datasource.provider.AbstractJdbcDataSourceProvider;
 import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DataSourceProperty;
+import com.qrcb.common.core.datasource.config.HikariDataSourceProperties;
 import com.qrcb.common.core.datasource.support.DataSourceConstants;
 import com.qrcb.common.core.datasource.util.DsConfTypeEnum;
 import com.qrcb.common.core.datasource.util.DsJdbcUrlEnum;
+import lombok.Getter;
 import org.jasypt.encryption.StringEncryptor;
 
 import java.sql.ResultSet;
@@ -17,6 +19,7 @@ import java.util.Map;
  * @Author Anson
  * @Create 2023-10-24
  * @Description 从数据源中获取配置信息 <br/>
+ * 仅直接配置生成默认主数据源，其他动态多数据源配置根据 Key 条件动态创建
  */
 
 public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvider {
@@ -25,10 +28,14 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
 
     private final StringEncryptor stringEncryptor;
 
+    @Getter
+    private Map<String, DataSourceProperty> dataSourcePropertiesMap;
+
     public JdbcDynamicDataSourceProvider(StringEncryptor stringEncryptor, HikariDataSourceProperties properties) {
         super(properties.getDriverClassName(), properties.getUrl(), properties.getUsername(), properties.getPassword());
         this.stringEncryptor = stringEncryptor;
         this.properties = properties;
+        this.dataSourcePropertiesMap=new HashMap<>(8);
     }
 
     /**
@@ -42,7 +49,6 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
     protected Map<String, DataSourceProperty> executeStmt(Statement statement) throws SQLException {
         ResultSet rs = statement.executeQuery(properties.getQueryDsSql());
 
-        Map<String, DataSourceProperty> map = new HashMap<>(8);
         while (rs.next()) {
             String name = rs.getString(DataSourceConstants.NAME);
             String username = rs.getString(DataSourceConstants.DS_USER_NAME);
@@ -72,10 +78,11 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
             property.setUsername(username);
             property.setPassword(stringEncryptor.decrypt(password));
             property.setUrl(url);
-            map.put(name, property);
+            this.dataSourcePropertiesMap.put(name, property);
         }
 
         // 添加默认主数据源
+        Map<String, DataSourceProperty> map = new HashMap<>(8);
         DataSourceProperty property = new DataSourceProperty();
         property.setUsername(properties.getUsername());
         property.setPassword(properties.getPassword());
