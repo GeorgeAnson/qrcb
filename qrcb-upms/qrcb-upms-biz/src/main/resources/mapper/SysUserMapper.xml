@@ -105,9 +105,9 @@
 		SELECT
 		<include refid="userRoleSql"/>
 		FROM
-		qrcb_upms.sys_user u
-		LEFT JOIN qrcb_upms.sys_user_role ur ON ur.user_id = u.user_id
-		LEFT JOIN qrcb_upms.sys_role r ON r.role_id = ur.role_id
+		sys_user u
+		LEFT JOIN sys_user_role ur ON ur.user_id = u.user_id
+		LEFT JOIN sys_role r ON r.role_id = ur.role_id
 		WHERE u.username = #{username}
 	</select>
 
@@ -115,10 +115,10 @@
 		SELECT
 		<include refid="userRoleDeptSql"/>
 		FROM
-		qrcb_upms.sys_user u
-		LEFT JOIN qrcb_upms.sys_user_role ur ON ur.user_id = u.user_id
-		LEFT JOIN qrcb_upms.sys_role r ON r.role_id = ur.role_id
-		LEFT JOIN qrcb_upms.sys_dept d ON d.dept_id = u.dept_id
+		sys_user u
+		LEFT JOIN sys_user_role ur ON ur.user_id = u.user_id
+		LEFT JOIN sys_role r ON r.role_id = ur.role_id
+		LEFT JOIN sys_dept d ON d.dept_id = u.dept_id
 		WHERE
 		u.user_id = #{id}
 	</select>
@@ -142,8 +142,8 @@
         u.tenant_id,
         d.name dept_name
         FROM
-		qrcb_upms.sys_user u
-        LEFT JOIN qrcb_upms.sys_dept d ON d.dept_id = u.dept_id
+		sys_user u
+        LEFT JOIN sys_dept d ON d.dept_id = u.dept_id
         <where>
             u.del_flag = '0'
             <if test="query.username != null and query.username != ''">
