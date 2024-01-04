@@ -35,19 +35,19 @@
 
 	<!--通过角色查询菜单信息-->
 	<select id="listMenusByRoleId" resultMap="MenuVoResultMap">
-        SELECT qrcb_upms.sys_menu.*
-        FROM qrcb_upms.sys_menu
-                 LEFT JOIN qrcb_upms.sys_role_menu ON qrcb_upms.sys_menu.menu_id = qrcb_upms.sys_role_menu.menu_id
-        WHERE qrcb_upms.sys_menu.del_flag = 0
-          AND qrcb_upms.sys_role_menu.role_id = #{roleId}
-        ORDER BY qrcb_upms.sys_menu.sort DESC
+        SELECT sys_menu.*
+        FROM sys_menu
+                 LEFT JOIN sys_role_menu ON sys_menu.menu_id = sys_role_menu.menu_id
+        WHERE sys_menu.del_flag = 0
+          AND sys_role_menu.role_id = #{roleId}
+        ORDER BY sys_menu.sort DESC
     </select>
 
 	<!--通过角色ID 查询权限-->
 	<select id="listPermissionsByRoleIds" resultType="java.lang.String">
 		SELECT m.permission
-		FROM qrcb_upms.sys_menu m,
-			 qrcb_upms.sys_role_menu rm
+		FROM sys_menu m,
+			 sys_role_menu rm
 		WHERE m.menu_id = rm.menu_id
 		  AND m.del_flag = 0
 		  AND rm.role_id IN (#{roleIds})
