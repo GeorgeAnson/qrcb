@@ -56,6 +56,8 @@ spring:
         url: http://qrcb-monitor:5001
         username: qrcb
         password: qrcb
+        instance:
+          prefer-ip: true
 
 use-address-server: true
 
