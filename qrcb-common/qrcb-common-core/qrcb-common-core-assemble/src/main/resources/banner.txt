@@ -8,3 +8,4 @@ ${AnsiColor.BRIGHT_YELLOW}
 ##############    ### ######## #########         ###     ######    ### ######## ###    ###       
 
                                 Qrcb Architecture
+${AnsiColor.DEFAULT}
