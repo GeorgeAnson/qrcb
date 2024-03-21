@@ -1,6 +1,6 @@
 FROM java:8-jre
 
-LABEL author="Anson" email="georgeanson@gmail.com" version="1.0.3"
+LABEL maintainer="Anson <georgeanson@gmail.com>" version="1.0.3"
 
 ENV TZ=Asia/Shanghai
 ENV JAVA_OPTS="-Xms512m -Xmx1024m -Djava.security.egd=file:/dev/./urandom"
