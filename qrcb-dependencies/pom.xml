@@ -16,7 +16,7 @@
     <name>${project.artifactId}</name>
 
     <properties>
-        <revision>1.0.3-SNAPSHOT</revision>
+        <revision>1.0.3</revision>
         <spring.boot.version>2.6.13</spring.boot.version>
         <spring.boot.admin.starter.client>2.6.11</spring.boot.admin.starter.client>
         <spring.cloud.version>2021.0.5</spring.cloud.version>
